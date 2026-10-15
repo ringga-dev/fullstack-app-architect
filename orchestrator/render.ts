@@ -36,7 +36,7 @@ function loadState(statePath?: string): SharedState {
 // ---------------------------------------------------------------- doc 00
 function render00(s: SharedState): string {
   const t = s.tech_stack_state || {};
-  const rows: string[][] = [
+  const rows: (string | undefined)[][] = [
     ["Platform", (t.platforms || []).join(", ")],
     ["Sync Mode", t.sync_mode || "-"],
     ["FE Framework", t.fe?.ui_framework],

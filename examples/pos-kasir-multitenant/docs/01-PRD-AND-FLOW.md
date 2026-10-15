@@ -1,6 +1,6 @@
 # 01 - PRD & Flow
 
-> Project: **pos-kasir-multitenant** | FR: 10 | Digenerate: 2026-10-15T06:07:59.708Z
+> Project: **pos-kasir-multitenant** | FR: 10 | Digenerate: 2026-10-15T07:14:41.078Z
 
 ## 1. Tujuan & Aktor
 - Goal: Kasir/POS yang tetap bisa melayani transaksi saat internet putus, lalu menyinkronkan data ke server saat online.

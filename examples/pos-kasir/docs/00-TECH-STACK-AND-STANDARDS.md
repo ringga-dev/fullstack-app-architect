@@ -1,7 +1,7 @@
 # 00 - Tech Stack & Standards (Hukum Dasar)
 
 > Project: **pos-kasir** | Profile: `pos-kasir-offline` | Status: **LOCKED**
-> Digenerate: 2026-10-15T06:07:59.594Z
+> Digenerate: 2026-10-15T07:14:40.968Z
 
 ## 1. Decision Log
 | # | Area | Keputusan | Status |

@@ -19,13 +19,22 @@ jobs:
         with:
           bun-version: latest
 
+      - name: Install dev dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Type check
+        run: bun run typecheck
+
+      - name: Smoke test (gate regression)
+        run: bun test
+
       # Regenerate contoh (multi-tenant bergantung pada POS dasar).
       - name: Regenerate examples
         run: |
           bun run examples/pos-kasir/seed.ts
           bun run examples/pos-kasir-multitenant/seed.ts
 
-      # Matrix manual: satu langkah per contoh, gagal bila ada BLOCKER (exit code 2).
+      # Satu langkah per contoh: gagal bila ada BLOCKER (exit code 2).
       - name: Gate - POS Kasir (single-tenant)
         run: bun run orchestrator/ci.ts --state examples/pos-kasir/state.json --out-dir examples/pos-kasir/docs
 

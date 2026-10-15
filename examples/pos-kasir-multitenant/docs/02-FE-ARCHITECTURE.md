@@ -1,6 +1,6 @@
 # 02 - FE Architecture
 
-> Platform: Android, iOS, Desktop, Web | Stack: Kotlin + Compose Multiplatform (CMP) | Digenerate: 2026-10-15T06:07:59.708Z
+> Platform: Android, iOS, Desktop, Web | Stack: Kotlin + Compose Multiplatform (CMP) | Digenerate: 2026-10-15T07:14:41.078Z
 
 ## 1. Tech Stack & Pattern
 - UI: `Compose Multiplatform (CMP)` | Pattern: `Clean Architecture + MVI (Unidirectional Data Flow)`

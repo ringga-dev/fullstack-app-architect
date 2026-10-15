@@ -2,7 +2,9 @@
 
 Sistem Orchestrator + Multi-Agent Architecture Engine untuk menghasilkan blueprint arsitektur fullstack yang ter-traceable, lintas-validasi, dan siap dieksekusi AI Coding Agent.
 
-Cocok dijalankan langsung di **OpenCode**, **Antigraviti**, dan **Hermes**.
+Dirancang untuk **OpenCode** (integrasi agen sudah disesuaikan dengan format V2) dengan format ekspor untuk **Antigraviti**, **Hermes**, **Cursor**, dan **Cline/Roo** (format disediakan, belum diverifikasi resmi per-platform).
+
+> **Status: `v0.1.0` (alpha).** Mesin berjalan end-to-end dan dua blueprint contoh lolos `APPROVE_GATE`. API/skema JSON masih dapat berubah sebelum `1.0`.
 
 ## Tujuan
 
@@ -76,14 +78,19 @@ Setiap agent punya **YAML frontmatter** (`name`, `role`, `output_file`, `input_d
 
 ## Requirement Runtime
 
-Butuh salah satu: **Bun** (rekomendasi, tercepat) atau **Node.js + tsx**.
+Mesin bersifat **portable** (tidak memakai API khusus Bun seperti `import.meta.dir`). Pilih salah satu:
+
+| Runtime | Versi | Cara menjalankan |
+| --- | --- | --- |
+| **Bun** (disarankan) | `>= 1.1` | `bun run orchestrator/<file>.ts` — tercepat, tanpa dependensi. |
+| **Node.js + tsx** | Node `>= 20.11` | `npx tsx orchestrator/<file>.ts` (ganti `bun run` → `npx tsx`). |
 
 ```bash
-# cek
-bun --version
+bun --version     # disarankan
+node --version    # alternatif (>= 20.11 bila tidak memakai Bun)
 ```
 
-> Jika belum ada Bun: https://bun.sh  — atau `npm i -D tsx` lalu ganti `bun run` menjadi `npx tsx`.
+> Belum ada Bun? Pasang dari https://bun.sh — atau `npm i -g tsx` lalu gunakan `npx tsx`.
 
 ## Cara Pakai
 
@@ -294,3 +301,17 @@ unggah artefak `docs/` + `workspace-output/CI-REPORT.json`).
 - Cross-Reviewer harus tetap independen
 - Pertahankan ID `FR-XX`, `FE-XX`, `BE-XX`, `DB-XX`, `API-XX` persis seperti yang didefinisikan
 - Gunakan `SharedState` (`workspace-output/STATE-*.json`) sebagai **single source of truth**
+
+## Dokumentasi
+
+- [Quick Start](docs/QUICKSTART.md) — satu halaman untuk langsung pakai
+- [Panduan Lengkap](docs/GUIDE.md) — detail alur, validator, renderer, prompt, tasks, CI, ekspor
+- [OpenCode](docs/OPENCODE.md) — cara pakai di OpenCode (agen V2)
+- [Changelog](CHANGELOG.md) — riwayat perubahan
+
+## Lisensi
+
+Dirilis di bawah [MIT License](LICENSE) © 2026 Fullstack App Architect contributors.
+
+Riwayat perubahan ada di [`CHANGELOG.md`](CHANGELOG.md). Ganti URL `CHANGE_ME` di
+`package.json` (repository/homepage/bugs) dengan repo Anda sebelum publikasi.

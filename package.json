@@ -73,6 +73,7 @@
     "render": "bun run orchestrator/render.ts",
     "render:stdout": "bun run orchestrator/render.ts --stdout",
     "ci": "bun run orchestrator/ci.ts",
+    "test": "bun test",
     "seed:pos": "bun run examples/pos-kasir/seed.ts",
     "seed:pos-mt": "bun run examples/pos-kasir-multitenant/seed.ts",
     "export:opencode": "bun run orchestrator/export.ts opencode",
@@ -85,6 +86,7 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
+    "@types/bun": "^1.4.3",
     "@types/node": "^22.9.0",
     "tsx": "^4.19.2",
     "typescript": "^5.6.3"

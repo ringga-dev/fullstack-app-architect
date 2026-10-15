@@ -1,7 +1,7 @@
 # 00 - Tech Stack & Standards (Hukum Dasar)
 
 > Project: **pos-kasir-multitenant** | Profile: `pos-kasir-multitenant` | Status: **LOCKED**
-> Digenerate: 2026-10-15T06:07:59.707Z
+> Digenerate: 2026-10-15T07:14:41.078Z
 
 ## 1. Decision Log
 | # | Area | Keputusan | Status |

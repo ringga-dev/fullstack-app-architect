@@ -1,6 +1,6 @@
 # 04 - Database Schema
 
-> Engine: PostgreSQL | ID: UUID v7 | Tabel: 11 | Digenerate: 2026-10-15T06:07:59.708Z
+> Engine: PostgreSQL | ID: UUID v7 | Tabel: 11 | Digenerate: 2026-10-15T07:14:41.078Z
 
 ## 1. ERD (Mermaid)
 ```mermaid

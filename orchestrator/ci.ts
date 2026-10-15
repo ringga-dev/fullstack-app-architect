@@ -50,7 +50,12 @@ function loadState(p?: string): SharedState {
 }
 
 function main() {
-  const args = parse(process.argv.slice(2));
+  const argv = process.argv.slice(2);
+  if (argv.includes("--help") || argv.includes("-h")) {
+    printHelp();
+    return;
+  }
+  const args = parse(argv);
   const log = (...m: unknown[]) => {
     if (!args.quiet) console.log(...m);
   };
@@ -133,6 +138,26 @@ function main() {
     process.exit(2);
   }
   log("RESULT: APPROVE_GATE (tidak ada BLOCKER).");
+}
+
+function printHelp() {
+  console.log(`Multi-Agent Architect — CI (validate + render + backlog)
+
+Usage:
+  bun run orchestrator/ci.ts [OPTIONS]
+
+Options:
+  -s, --state <path>   Path ke SharedState JSON (default: workspace-output/STATE-SNAPSHOT.json)
+  -o, --out-dir <dir>  Dir output untuk docs (default: ./docs)
+  --no-render          Skip render docs
+  --no-tasks           Skip generate backlog
+  -q, --quiet          Mode tenang
+  -h, --help           Tampilkan bantuan ini
+
+Contoh:
+  bun run orchestrator/ci.ts
+  bun run orchestrator/ci.ts --state examples/pos-kasir/state.json --out-dir examples/pos-kasir/docs
+`);
 }
 
 const invokedDirectly =

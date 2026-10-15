@@ -1,10 +1,10 @@
 # 05 - API Contract
 
-> Base URL: /api/v1 | Version: v1 | Endpoint: 15 | Digenerate: 2026-10-15T06:07:59.595Z
+> Base URL: /api/v1 | Version: v1 | Endpoint: 15 | Digenerate: 2026-10-15T07:14:40.969Z
 
 ## 1. Unified JSON Envelope
 ```json
-{ "success": true, "code": "OK", "message": "string", "data": {}, "meta": { "request_id": "req_...", "timestamp": "2026-10-15T06:07:59.595Z" }, "errors": [] }
+{ "success": true, "code": "OK", "message": "string", "data": {}, "meta": { "request_id": "req_...", "timestamp": "2026-10-15T07:14:40.969Z" }, "errors": [] }
 ```
 
 ## 2. Katalog Endpoint (API-XX)

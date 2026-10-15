@@ -29,6 +29,30 @@ export interface BootstrapResult {
   profile?: string;
 }
 
+function printHelp() {
+  console.log(`Multi-Agent Architect — Bootstrap Engine
+
+Usage:
+  bun run orchestrator/index.ts [OPTIONS] [IDEA...]
+
+Options:
+  -n, --name <name>        Nama project (default: multi-agent-project)
+  -p, --profile <id>       Terapkan profile preset
+  --list-profiles          Tampilkan daftar profile tersedia
+  -i, --idea <text>        Ide project (bisa multi-kata)
+  -h, --help               Tampilkan bantuan ini
+
+Contoh:
+  bun run orchestrator/index.ts --name pos-kasir --idea "POS kasir offline-first"
+  bun run orchestrator/index.ts --profile pos-kasir-offline --idea "Multi-toko"
+  bun run orchestrator/index.ts --list-profiles
+`);
+}
+
+export function bootstrap(...args: Parameters<typeof _bootstrap>) {
+  return _bootstrap(...args);
+}
+
 const PIPELINE = [
   ["00-discovery-interviewer", "docs/00-TECH-STACK-AND-STANDARDS.md", "Gerbang 1: Wawancara & lock Tech Stack + Clean Code"],
   ["01-flow-prd", "docs/01-PRD-AND-FLOW.md", "PRD + user flows + MoSCoW (FR-XX)"],
@@ -39,7 +63,7 @@ const PIPELINE = [
   ["06-cross-reviewer", "docs/06-AUDIT-AND-ROADMAP.md", "Gerbang 3: audit + traceability + roadmap"],
 ] as const;
 
-export function bootstrap(
+function _bootstrap(
   projectName?: string,
   idea?: string,
   profileId?: string,
@@ -126,9 +150,23 @@ ${ideaText}
 
 function main() {
   const args = process.argv.slice(2);
+
+  if (args.includes("--help") || args.includes("-h")) {
+    printHelp();
+    return;
+  }
+
   let projectName = "multi-agent-project";
   let idea: string | undefined;
   let profileId: string | undefined;
+
+  if (args.includes("--list-profiles")) {
+    console.log("Profiles tersedia:");
+    for (const p of listProfiles()) {
+      console.log(`  ${p.id.padEnd(24)} ${p.name}`);
+    }
+    return;
+  }
 
   if (args.includes("--list-profiles")) {
     console.log("Profiles tersedia:");
