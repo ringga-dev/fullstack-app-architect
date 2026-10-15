@@ -1,0 +1,47 @@
+{
+  "id": "enterprise-java",
+  "name": "Enterprise Java (Spring Boot)",
+  "description": "Aplikasi enterprise/ERP dengan Spring Boot + PostgreSQL/Hibernate + Angular.",
+  "tags": ["enterprise", "java", "spring", "web"],
+  "project_meta": {
+    "name": "enterprise-app",
+    "platforms": ["Web"],
+    "architecture_style": "Clean Architecture",
+    "description": "Aplikasi enterprise multi-modul (ERP/CRM)."
+  },
+  "tech_stack_state": {
+    "profile": "enterprise-java",
+    "platforms": ["Web"],
+    "sync_mode": "online-only",
+    "fe": {
+      "ui_framework": "Angular",
+      "presentation_pattern": "Signals (Solid/Angular/Preact)",
+      "di": "Angular DI",
+      "networking": "Axios",
+      "navigation": "Angular Router"
+    },
+    "be": {
+      "language": "Java",
+      "framework": "Spring Boot",
+      "architecture_style": "Hexagonal (Ports & Adapters)",
+      "system_style": "Modular Monolith",
+      "auth": "OAuth2 / OIDC + JWT"
+    },
+    "db": {
+      "server_engine": "PostgreSQL",
+      "orm": "Hibernate / JPA",
+      "migration_tool": "Flyway",
+      "primary_key_strategy": "UUID v7"
+    },
+    "repo_strategy": "multi-repo",
+    "module_strategy": "ddd-bounded-context",
+    "standards": {
+      "domain_purity": true,
+      "strict_mapping": true,
+      "error_handling": "Either<Failure, Success>",
+      "naming": { "db": "snake_case_plural", "api": "camelCase", "linter": "Checkstyle + SpotBugs" },
+      "status": "LOCKED"
+    }
+  },
+  "notes": ["Cocok untuk tim besar; gunakan bounded context per domain bisnis."]
+}

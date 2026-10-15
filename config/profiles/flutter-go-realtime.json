@@ -1,0 +1,48 @@
+{
+  "id": "flutter-go-realtime",
+  "name": "Flutter + Go Realtime",
+  "description": "Aplikasi mobile real-time (chat/kolaborasi) dengan Flutter + Go Fiber + PostgreSQL + WebSocket.",
+  "tags": ["mobile", "flutter", "go", "real-time"],
+  "project_meta": {
+    "name": "realtime-app",
+    "platforms": ["Android", "iOS", "Web"],
+    "architecture_style": "Clean Architecture",
+    "description": "Aplikasi mobile real-time."
+  },
+  "tech_stack_state": {
+    "profile": "flutter-go-realtime",
+    "platforms": ["Android", "iOS", "Web"],
+    "sync_mode": "real-time",
+    "fe": {
+      "ui_framework": "Flutter",
+      "presentation_pattern": "BLoC / Cubit",
+      "di": "Riverpod",
+      "networking": "Dio (Dart)",
+      "navigation": "go_router (Flutter)",
+      "local_db": "Drift (Dart)"
+    },
+    "be": {
+      "language": "Go",
+      "framework": "Fiber",
+      "architecture_style": "Hexagonal (Ports & Adapters)",
+      "system_style": "Modular Monolith",
+      "auth": "JWT Access + Refresh Rotation"
+    },
+    "db": {
+      "server_engine": "PostgreSQL",
+      "orm": "sqlc",
+      "migration_tool": "golang-migrate",
+      "primary_key_strategy": "ULID"
+    },
+    "repo_strategy": "multi-repo",
+    "module_strategy": "package-by-feature",
+    "standards": {
+      "domain_purity": true,
+      "strict_mapping": true,
+      "error_handling": "Result<T, E>",
+      "naming": { "db": "snake_case_plural", "api": "snake_case", "linter": "golangci-lint" },
+      "status": "LOCKED"
+    }
+  },
+  "notes": ["Contoh preset untuk kebutuhan real-time."]
+}

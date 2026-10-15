@@ -1,0 +1,23 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+.env
+.env.local
+
+# Exported agent configs
+.opencode/
+.antigraviti/
+.hermes/
+.clinerules/
+.roo/
+.cursor/
+
+# Generated outputs
+workspace-output/*
+!workspace-output/.gitkeep
+docs/*
+!docs/.gitkeep
+
+# OS
+Thumbs.db

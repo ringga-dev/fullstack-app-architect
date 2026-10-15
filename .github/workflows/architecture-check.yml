@@ -1,0 +1,46 @@
+name: Architecture Check
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  gate:
+    name: Validate blueprints (APPROVE_GATE)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      # Regenerate contoh (multi-tenant bergantung pada POS dasar).
+      - name: Regenerate examples
+        run: |
+          bun run examples/pos-kasir/seed.ts
+          bun run examples/pos-kasir-multitenant/seed.ts
+
+      # Matrix manual: satu langkah per contoh, gagal bila ada BLOCKER (exit code 2).
+      - name: Gate - POS Kasir (single-tenant)
+        run: bun run orchestrator/ci.ts --state examples/pos-kasir/state.json --out-dir examples/pos-kasir/docs
+
+      - name: Gate - POS Kasir (multi-tenant)
+        run: bun run orchestrator/ci.ts --state examples/pos-kasir-multitenant/state.json --out-dir examples/pos-kasir-multitenant/docs
+
+      - name: Upload blueprint artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: architecture-blueprint
+          path: |
+            docs/
+            workspace-output/
+            examples/**/docs/
+            examples/**/BACKLOG.md
+          if-no-files-found: warn
+          retention-days: 14

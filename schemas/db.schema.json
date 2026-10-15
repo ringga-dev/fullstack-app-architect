@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DBStateSchema",
+  "type": "object",
+  "required": ["engine", "tables"],
+  "additionalProperties": true,
+  "properties": {
+    "engine": {
+      "type": "string",
+      "enum": ["PostgreSQL", "MySQL", "SQLite", "SQLServer", "Other"]
+    },
+    "id_strategy": { "type": "string" },
+    "tables": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "columns", "indexes", "relations"],
+        "additionalProperties": true,
+        "properties": {
+          "id": { "type": "string", "pattern": "^DB-[0-9]{2,}$" },
+          "name": { "type": "string", "minLength": 1 },
+          "maps_to_fr": {
+            "type": "array",
+            "items": { "type": "string", "pattern": "^FR-[0-9]{2,}$" }
+          },
+          "columns": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["name", "type", "nullable"],
+              "additionalProperties": true,
+              "properties": {
+                "name": { "type": "string" },
+                "type": { "type": "string" },
+                "nullable": { "type": "boolean" },
+                "pk": { "type": "boolean" },
+                "unique": { "type": "boolean" }
+              }
+            },
+            "minItems": 1
+          },
+          "indexes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["name", "columns"],
+              "additionalProperties": true,
+              "properties": {
+                "name": { "type": "string" },
+                "columns": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+              }
+            }
+          },
+          "relations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["from", "to", "type"],
+              "additionalProperties": true,
+              "properties": {
+                "from": { "type": "string" },
+                "to": {
+                  "type": "object",
+                  "required": ["table", "column"],
+                  "properties": {
+                    "table": { "type": "string" },
+                    "column": { "type": "string" }
+                  }
+                },
+                "type": { "type": "string", "enum": ["1:N", "N:1", "1:1", "N:N"] }
+              }
+            }
+          }
+        }
+      },
+      "minItems": 0
+    }
+  }
+}

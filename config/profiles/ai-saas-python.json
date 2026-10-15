@@ -1,0 +1,50 @@
+{
+  "id": "ai-saas-python",
+  "name": "AI SaaS (Python + RAG)",
+  "description": "SaaS berbasis AI/RAG dengan FastAPI + PostgreSQL/pgvector + LangChain, FE React/Next.js.",
+  "tags": ["ai", "saas", "python", "rag", "web"],
+  "project_meta": {
+    "name": "ai-saas",
+    "platforms": ["Web"],
+    "architecture_style": "Clean Architecture",
+    "description": "Aplikasi SaaS AI: chat/RAG, dokumen, subscription."
+  },
+  "tech_stack_state": {
+    "profile": "ai-saas-python",
+    "platforms": ["Web"],
+    "sync_mode": "online-only",
+    "fe": {
+      "ui_framework": "Next.js",
+      "presentation_pattern": "Zustand",
+      "di": "Manual DI / Composition Root",
+      "networking": "TanStack Query (React Query)",
+      "navigation": "TanStack Router"
+    },
+    "be": {
+      "language": "Python",
+      "framework": "FastAPI",
+      "architecture_style": "Clean Architecture",
+      "system_style": "Modular Monolith",
+      "auth": "OAuth2 / OIDC + JWT"
+    },
+    "db": {
+      "server_engine": "PostgreSQL",
+      "orm": "SQLAlchemy 2.0",
+      "migration_tool": "Alembic (Python)",
+      "primary_key_strategy": "UUID v7"
+    },
+    "repo_strategy": "monorepo",
+    "module_strategy": "package-by-feature",
+    "standards": {
+      "domain_purity": true,
+      "strict_mapping": true,
+      "error_handling": "Result<T, E>",
+      "naming": { "db": "snake_case_plural", "api": "snake_case", "linter": "Ruff + Black" },
+      "status": "LOCKED"
+    }
+  },
+  "notes": [
+    "Tambahkan pgvector + LangChain/LlamaIndex; simpan embedding di tabel terpisah.",
+    "Untuk inferensi murah: pakai Ollama lokal atau model murah + cache."
+  ]
+}

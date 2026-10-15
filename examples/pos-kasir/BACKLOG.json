@@ -1,0 +1,761 @@
+{
+  "tasks": [
+    {
+      "id": "T-001",
+      "phase": "Fase 1 - Setup",
+      "title": "Inisialisasi workspace (Kotlin + Compose Multiplatform (CMP)) & linter detekt + ktlint",
+      "done_when": "Repo ter-build, linter & formatter jalan tanpa error.",
+      "verify": "jalankan linter (detekt + ktlint) -> 0 error",
+      "depends_on": []
+    },
+    {
+      "id": "T-002",
+      "phase": "Fase 1 - Setup",
+      "title": "Konfigurasi Flyway & koneksi DB PostgreSQL",
+      "done_when": "Migration tool siap; koneksi DB sukses.",
+      "verify": "Flyway status / migrate info",
+      "depends_on": []
+    },
+    {
+      "id": "T-003",
+      "phase": "Fase 2 - Domain (BE)",
+      "title": "[BE-01] Domain model + rules murni (AuthenticateCashier)",
+      "done_when": "Model & aturan bisnis murni ada; tanpa impor ORM/HTTP/JSON.",
+      "verify": "unit test domain lulus; grep tidak menemukan impor framework di folder domain",
+      "depends_on": [],
+      "refs": [
+        "BE-01",
+        "FR-01"
+      ]
+    },
+    {
+      "id": "T-004",
+      "phase": "Fase 2 - Domain (BE)",
+      "title": "[BE-01] UseCase AuthenticateCashier",
+      "done_when": "UseCase memanggil repository interface & mengembalikan Result<T,E>.",
+      "verify": "unit test usecase (mock repo) lulus",
+      "depends_on": [],
+      "refs": [
+        "BE-01"
+      ]
+    },
+    {
+      "id": "T-005",
+      "phase": "Fase 2 - Domain (BE)",
+      "title": "[BE-02] Domain model + rules murni (ManageShift)",
+      "done_when": "Model & aturan bisnis murni ada; tanpa impor ORM/HTTP/JSON.",
+      "verify": "unit test domain lulus; grep tidak menemukan impor framework di folder domain",
+      "depends_on": [],
+      "refs": [
+        "BE-02",
+        "FR-02"
+      ]
+    },
+    {
+      "id": "T-006",
+      "phase": "Fase 2 - Domain (BE)",
+      "title": "[BE-02] UseCase ManageShift (dalam transaksi)",
+      "done_when": "UseCase memanggil repository interface & mengembalikan Result<T,E>.",
+      "verify": "unit test usecase (mock repo) lulus",
+      "depends_on": [],
+      "refs": [
+        "BE-02"
+      ]
+    },
+    {
+      "id": "T-007",
+      "phase": "Fase 2 - Domain (BE)",
+      "title": "[BE-03] Domain model + rules murni (ManageProduct)",
+      "done_when": "Model & aturan bisnis murni ada; tanpa impor ORM/HTTP/JSON.",
+      "verify": "unit test domain lulus; grep tidak menemukan impor framework di folder domain",
+      "depends_on": [],
+      "refs": [
+        "BE-03",
+        "FR-03"
+      ]
+    },
+    {
+      "id": "T-008",
+      "phase": "Fase 2 - Domain (BE)",
+      "title": "[BE-03] UseCase ManageProduct (dalam transaksi)",
+      "done_when": "UseCase memanggil repository interface & mengembalikan Result<T,E>.",
+      "verify": "unit test usecase (mock repo) lulus",
+      "depends_on": [],
+      "refs": [
+        "BE-03"
+      ]
+    },
+    {
+      "id": "T-009",
+      "phase": "Fase 2 - Domain (BE)",
+      "title": "[BE-04] Domain model + rules murni (ManageStock)",
+      "done_when": "Model & aturan bisnis murni ada; tanpa impor ORM/HTTP/JSON.",
+      "verify": "unit test domain lulus; grep tidak menemukan impor framework di folder domain",
+      "depends_on": [],
+      "refs": [
+        "BE-04",
+        "FR-04"
+      ]
+    },
+    {
+      "id": "T-010",
+      "phase": "Fase 2 - Domain (BE)",
+      "title": "[BE-04] UseCase ManageStock (dalam transaksi)",
+      "done_when": "UseCase memanggil repository interface & mengembalikan Result<T,E>.",
+      "verify": "unit test usecase (mock repo) lulus",
+      "depends_on": [],
+      "refs": [
+        "BE-04"
+      ]
+    },
+    {
+      "id": "T-011",
+      "phase": "Fase 2 - Domain (BE)",
+      "title": "[BE-05] Domain model + rules murni (CreateSale)",
+      "done_when": "Model & aturan bisnis murni ada; tanpa impor ORM/HTTP/JSON.",
+      "verify": "unit test domain lulus; grep tidak menemukan impor framework di folder domain",
+      "depends_on": [],
+      "refs": [
+        "BE-05",
+        "FR-05"
+      ]
+    },
+    {
+      "id": "T-012",
+      "phase": "Fase 2 - Domain (BE)",
+      "title": "[BE-05] UseCase CreateSale (dalam transaksi)",
+      "done_when": "UseCase memanggil repository interface & mengembalikan Result<T,E>.",
+      "verify": "unit test usecase (mock repo) lulus",
+      "depends_on": [],
+      "refs": [
+        "BE-05"
+      ]
+    },
+    {
+      "id": "T-013",
+      "phase": "Fase 2 - Domain (BE)",
+      "title": "[BE-06] Domain model + rules murni (ProcessPayment)",
+      "done_when": "Model & aturan bisnis murni ada; tanpa impor ORM/HTTP/JSON.",
+      "verify": "unit test domain lulus; grep tidak menemukan impor framework di folder domain",
+      "depends_on": [],
+      "refs": [
+        "BE-06",
+        "FR-06"
+      ]
+    },
+    {
+      "id": "T-014",
+      "phase": "Fase 2 - Domain (BE)",
+      "title": "[BE-06] UseCase ProcessPayment (dalam transaksi)",
+      "done_when": "UseCase memanggil repository interface & mengembalikan Result<T,E>.",
+      "verify": "unit test usecase (mock repo) lulus",
+      "depends_on": [],
+      "refs": [
+        "BE-06"
+      ]
+    },
+    {
+      "id": "T-015",
+      "phase": "Fase 2 - Domain (BE)",
+      "title": "[BE-07] Domain model + rules murni (SyncOfflineBatch)",
+      "done_when": "Model & aturan bisnis murni ada; tanpa impor ORM/HTTP/JSON.",
+      "verify": "unit test domain lulus; grep tidak menemukan impor framework di folder domain",
+      "depends_on": [],
+      "refs": [
+        "BE-07",
+        "FR-07"
+      ]
+    },
+    {
+      "id": "T-016",
+      "phase": "Fase 2 - Domain (BE)",
+      "title": "[BE-07] UseCase SyncOfflineBatch (dalam transaksi)",
+      "done_when": "UseCase memanggil repository interface & mengembalikan Result<T,E>.",
+      "verify": "unit test usecase (mock repo) lulus",
+      "depends_on": [],
+      "refs": [
+        "BE-07"
+      ]
+    },
+    {
+      "id": "T-017",
+      "phase": "Fase 2 - Domain (BE)",
+      "title": "[BE-08] Domain model + rules murni (GenerateSalesReport)",
+      "done_when": "Model & aturan bisnis murni ada; tanpa impor ORM/HTTP/JSON.",
+      "verify": "unit test domain lulus; grep tidak menemukan impor framework di folder domain",
+      "depends_on": [],
+      "refs": [
+        "BE-08",
+        "FR-08"
+      ]
+    },
+    {
+      "id": "T-018",
+      "phase": "Fase 2 - Domain (BE)",
+      "title": "[BE-08] UseCase GenerateSalesReport",
+      "done_when": "UseCase memanggil repository interface & mengembalikan Result<T,E>.",
+      "verify": "unit test usecase (mock repo) lulus",
+      "depends_on": [],
+      "refs": [
+        "BE-08"
+      ]
+    },
+    {
+      "id": "T-019",
+      "phase": "Fase 2 - Domain (BE)",
+      "title": "[BE-09] Domain model + rules murni (ManageUser)",
+      "done_when": "Model & aturan bisnis murni ada; tanpa impor ORM/HTTP/JSON.",
+      "verify": "unit test domain lulus; grep tidak menemukan impor framework di folder domain",
+      "depends_on": [],
+      "refs": [
+        "BE-09",
+        "FR-09"
+      ]
+    },
+    {
+      "id": "T-020",
+      "phase": "Fase 2 - Domain (BE)",
+      "title": "[BE-09] UseCase ManageUser (dalam transaksi)",
+      "done_when": "UseCase memanggil repository interface & mengembalikan Result<T,E>.",
+      "verify": "unit test usecase (mock repo) lulus",
+      "depends_on": [],
+      "refs": [
+        "BE-09"
+      ]
+    },
+    {
+      "id": "T-021",
+      "phase": "Fase 3 - Data & Migrasi",
+      "title": "[DB-01] Tabel users + index",
+      "done_when": "DDL/ORM entity dibuat dengan kolom id, created_at, updated_at, deleted_at, version; index dibuat.",
+      "verify": "migrate up sukses; cek index pada tabel users",
+      "depends_on": [],
+      "refs": [
+        "DB-01"
+      ]
+    },
+    {
+      "id": "T-022",
+      "phase": "Fase 3 - Data & Migrasi",
+      "title": "[DB-02] Tabel shifts + index",
+      "done_when": "DDL/ORM entity dibuat dengan kolom id, created_at, updated_at, deleted_at, version; index dibuat.",
+      "verify": "migrate up sukses; cek index pada tabel shifts",
+      "depends_on": [],
+      "refs": [
+        "DB-02"
+      ]
+    },
+    {
+      "id": "T-023",
+      "phase": "Fase 3 - Data & Migrasi",
+      "title": "[DB-03] Tabel categories + index",
+      "done_when": "DDL/ORM entity dibuat dengan kolom id, created_at, updated_at, deleted_at, version; index dibuat.",
+      "verify": "migrate up sukses; cek index pada tabel categories",
+      "depends_on": [],
+      "refs": [
+        "DB-03"
+      ]
+    },
+    {
+      "id": "T-024",
+      "phase": "Fase 3 - Data & Migrasi",
+      "title": "[DB-04] Tabel products + index",
+      "done_when": "DDL/ORM entity dibuat dengan kolom id, created_at, updated_at, deleted_at, version; index dibuat.",
+      "verify": "migrate up sukses; cek index pada tabel products",
+      "depends_on": [],
+      "refs": [
+        "DB-04"
+      ]
+    },
+    {
+      "id": "T-025",
+      "phase": "Fase 3 - Data & Migrasi",
+      "title": "[DB-05] Tabel stock_movements + index",
+      "done_when": "DDL/ORM entity dibuat dengan kolom id, created_at, updated_at, deleted_at, version; index dibuat.",
+      "verify": "migrate up sukses; cek index pada tabel stock_movements",
+      "depends_on": [],
+      "refs": [
+        "DB-05"
+      ]
+    },
+    {
+      "id": "T-026",
+      "phase": "Fase 3 - Data & Migrasi",
+      "title": "[DB-06] Tabel sales + index",
+      "done_when": "DDL/ORM entity dibuat dengan kolom id, created_at, updated_at, deleted_at, version; index dibuat.",
+      "verify": "migrate up sukses; cek index pada tabel sales",
+      "depends_on": [],
+      "refs": [
+        "DB-06"
+      ]
+    },
+    {
+      "id": "T-027",
+      "phase": "Fase 3 - Data & Migrasi",
+      "title": "[DB-07] Tabel sale_items + index",
+      "done_when": "DDL/ORM entity dibuat dengan kolom id, created_at, updated_at, deleted_at, version; index dibuat.",
+      "verify": "migrate up sukses; cek index pada tabel sale_items",
+      "depends_on": [],
+      "refs": [
+        "DB-07"
+      ]
+    },
+    {
+      "id": "T-028",
+      "phase": "Fase 3 - Data & Migrasi",
+      "title": "[DB-08] Tabel payments + index",
+      "done_when": "DDL/ORM entity dibuat dengan kolom id, created_at, updated_at, deleted_at, version; index dibuat.",
+      "verify": "migrate up sukses; cek index pada tabel payments",
+      "depends_on": [],
+      "refs": [
+        "DB-08"
+      ]
+    },
+    {
+      "id": "T-029",
+      "phase": "Fase 3 - Data & Migrasi",
+      "title": "[DB-09] Tabel sync_log + index",
+      "done_when": "DDL/ORM entity dibuat dengan kolom id, created_at, updated_at, deleted_at, version; index dibuat.",
+      "verify": "migrate up sukses; cek index pada tabel sync_log",
+      "depends_on": [],
+      "refs": [
+        "DB-09"
+      ]
+    },
+    {
+      "id": "T-030",
+      "phase": "Fase 3 - Data & Migrasi",
+      "title": "[DB-10] Tabel stores + index",
+      "done_when": "DDL/ORM entity dibuat dengan kolom id, created_at, updated_at, deleted_at, version; index dibuat.",
+      "verify": "migrate up sukses; cek index pada tabel stores",
+      "depends_on": [],
+      "refs": [
+        "DB-10"
+      ]
+    },
+    {
+      "id": "T-031",
+      "phase": "Fase 3 - Data & Migrasi",
+      "title": "[BE-01] Repository impl + Mapper (Entity<->Domain)",
+      "done_when": "RepositoryImpl mengimplementasikan port domain; mapper eksplisit tersedia.",
+      "verify": "integration test repo terhadap DB lulus",
+      "depends_on": [],
+      "refs": [
+        "BE-01"
+      ]
+    },
+    {
+      "id": "T-032",
+      "phase": "Fase 3 - Data & Migrasi",
+      "title": "[BE-02] Repository impl + Mapper (Entity<->Domain)",
+      "done_when": "RepositoryImpl mengimplementasikan port domain; mapper eksplisit tersedia.",
+      "verify": "integration test repo terhadap DB lulus",
+      "depends_on": [],
+      "refs": [
+        "BE-02"
+      ]
+    },
+    {
+      "id": "T-033",
+      "phase": "Fase 3 - Data & Migrasi",
+      "title": "[BE-03] Repository impl + Mapper (Entity<->Domain)",
+      "done_when": "RepositoryImpl mengimplementasikan port domain; mapper eksplisit tersedia.",
+      "verify": "integration test repo terhadap DB lulus",
+      "depends_on": [],
+      "refs": [
+        "BE-03"
+      ]
+    },
+    {
+      "id": "T-034",
+      "phase": "Fase 3 - Data & Migrasi",
+      "title": "[BE-04] Repository impl + Mapper (Entity<->Domain)",
+      "done_when": "RepositoryImpl mengimplementasikan port domain; mapper eksplisit tersedia.",
+      "verify": "integration test repo terhadap DB lulus",
+      "depends_on": [],
+      "refs": [
+        "BE-04"
+      ]
+    },
+    {
+      "id": "T-035",
+      "phase": "Fase 3 - Data & Migrasi",
+      "title": "[BE-05] Repository impl + Mapper (Entity<->Domain)",
+      "done_when": "RepositoryImpl mengimplementasikan port domain; mapper eksplisit tersedia.",
+      "verify": "integration test repo terhadap DB lulus",
+      "depends_on": [],
+      "refs": [
+        "BE-05"
+      ]
+    },
+    {
+      "id": "T-036",
+      "phase": "Fase 3 - Data & Migrasi",
+      "title": "[BE-06] Repository impl + Mapper (Entity<->Domain)",
+      "done_when": "RepositoryImpl mengimplementasikan port domain; mapper eksplisit tersedia.",
+      "verify": "integration test repo terhadap DB lulus",
+      "depends_on": [],
+      "refs": [
+        "BE-06"
+      ]
+    },
+    {
+      "id": "T-037",
+      "phase": "Fase 3 - Data & Migrasi",
+      "title": "[BE-07] Repository impl + Mapper (Entity<->Domain)",
+      "done_when": "RepositoryImpl mengimplementasikan port domain; mapper eksplisit tersedia.",
+      "verify": "integration test repo terhadap DB lulus",
+      "depends_on": [],
+      "refs": [
+        "BE-07"
+      ]
+    },
+    {
+      "id": "T-038",
+      "phase": "Fase 3 - Data & Migrasi",
+      "title": "[BE-08] Repository impl + Mapper (Entity<->Domain)",
+      "done_when": "RepositoryImpl mengimplementasikan port domain; mapper eksplisit tersedia.",
+      "verify": "integration test repo terhadap DB lulus",
+      "depends_on": [],
+      "refs": [
+        "BE-08"
+      ]
+    },
+    {
+      "id": "T-039",
+      "phase": "Fase 3 - Data & Migrasi",
+      "title": "[BE-09] Repository impl + Mapper (Entity<->Domain)",
+      "done_when": "RepositoryImpl mengimplementasikan port domain; mapper eksplisit tersedia.",
+      "verify": "integration test repo terhadap DB lulus",
+      "depends_on": [],
+      "refs": [
+        "BE-09"
+      ]
+    },
+    {
+      "id": "T-040",
+      "phase": "Fase 4 - API",
+      "title": "[API-01] Endpoint POST /auth/login",
+      "done_when": "Endpoint mengembalikan Unified Envelope; validasi input & role diterapkan.",
+      "verify": "contract test / curl mengembalikan envelope sesuai skema",
+      "depends_on": [],
+      "refs": [
+        "API-01",
+        "BE-01"
+      ]
+    },
+    {
+      "id": "T-041",
+      "phase": "Fase 4 - API",
+      "title": "[API-02] Endpoint POST /shifts/open",
+      "done_when": "Endpoint mengembalikan Unified Envelope; validasi input & role diterapkan.",
+      "verify": "contract test / curl mengembalikan envelope sesuai skema",
+      "depends_on": [],
+      "refs": [
+        "API-02",
+        "BE-02"
+      ]
+    },
+    {
+      "id": "T-042",
+      "phase": "Fase 4 - API",
+      "title": "[API-03] Endpoint POST /shifts/close",
+      "done_when": "Endpoint mengembalikan Unified Envelope; validasi input & role diterapkan.",
+      "verify": "contract test / curl mengembalikan envelope sesuai skema",
+      "depends_on": [],
+      "refs": [
+        "API-03",
+        "BE-02"
+      ]
+    },
+    {
+      "id": "T-043",
+      "phase": "Fase 4 - API",
+      "title": "[API-04] Endpoint GET /products",
+      "done_when": "Endpoint mengembalikan Unified Envelope; validasi input & role diterapkan.",
+      "verify": "contract test / curl mengembalikan envelope sesuai skema",
+      "depends_on": [],
+      "refs": [
+        "API-04",
+        "BE-03"
+      ]
+    },
+    {
+      "id": "T-044",
+      "phase": "Fase 4 - API",
+      "title": "[API-05] Endpoint POST /products",
+      "done_when": "Endpoint mengembalikan Unified Envelope; validasi input & role diterapkan.",
+      "verify": "contract test / curl mengembalikan envelope sesuai skema",
+      "depends_on": [],
+      "refs": [
+        "API-05",
+        "BE-03"
+      ]
+    },
+    {
+      "id": "T-045",
+      "phase": "Fase 4 - API",
+      "title": "[API-06] Endpoint PATCH /products/{id}",
+      "done_when": "Endpoint mengembalikan Unified Envelope; validasi input & role diterapkan.",
+      "verify": "contract test / curl mengembalikan envelope sesuai skema",
+      "depends_on": [],
+      "refs": [
+        "API-06",
+        "BE-03"
+      ]
+    },
+    {
+      "id": "T-046",
+      "phase": "Fase 4 - API",
+      "title": "[API-07] Endpoint GET /stock-movements",
+      "done_when": "Endpoint mengembalikan Unified Envelope; validasi input & role diterapkan.",
+      "verify": "contract test / curl mengembalikan envelope sesuai skema",
+      "depends_on": [],
+      "refs": [
+        "API-07",
+        "BE-04"
+      ]
+    },
+    {
+      "id": "T-047",
+      "phase": "Fase 4 - API",
+      "title": "[API-08] Endpoint POST /stock-movements",
+      "done_when": "Endpoint mengembalikan Unified Envelope; validasi input & role diterapkan.",
+      "verify": "contract test / curl mengembalikan envelope sesuai skema",
+      "depends_on": [],
+      "refs": [
+        "API-08",
+        "BE-04"
+      ]
+    },
+    {
+      "id": "T-048",
+      "phase": "Fase 4 - API",
+      "title": "[API-09] Endpoint POST /sales",
+      "done_when": "Endpoint mengembalikan Unified Envelope; validasi input & role diterapkan.",
+      "verify": "contract test / curl mengembalikan envelope sesuai skema",
+      "depends_on": [],
+      "refs": [
+        "API-09",
+        "BE-05"
+      ]
+    },
+    {
+      "id": "T-049",
+      "phase": "Fase 4 - API",
+      "title": "[API-10] Endpoint POST /sales/{id}/payments",
+      "done_when": "Endpoint mengembalikan Unified Envelope; validasi input & role diterapkan.",
+      "verify": "contract test / curl mengembalikan envelope sesuai skema",
+      "depends_on": [],
+      "refs": [
+        "API-10",
+        "BE-06"
+      ]
+    },
+    {
+      "id": "T-050",
+      "phase": "Fase 4 - API",
+      "title": "[API-11] Endpoint POST /sync/batch",
+      "done_when": "Endpoint mengembalikan Unified Envelope; validasi input & role diterapkan.",
+      "verify": "contract test / curl mengembalikan envelope sesuai skema",
+      "depends_on": [],
+      "refs": [
+        "API-11",
+        "BE-07"
+      ]
+    },
+    {
+      "id": "T-051",
+      "phase": "Fase 4 - API",
+      "title": "[API-12] Endpoint GET /sync/status",
+      "done_when": "Endpoint mengembalikan Unified Envelope; validasi input & role diterapkan.",
+      "verify": "contract test / curl mengembalikan envelope sesuai skema",
+      "depends_on": [],
+      "refs": [
+        "API-12",
+        "BE-07"
+      ]
+    },
+    {
+      "id": "T-052",
+      "phase": "Fase 4 - API",
+      "title": "[API-13] Endpoint GET /reports/sales",
+      "done_when": "Endpoint mengembalikan Unified Envelope; validasi input & role diterapkan.",
+      "verify": "contract test / curl mengembalikan envelope sesuai skema",
+      "depends_on": [],
+      "refs": [
+        "API-13",
+        "BE-08"
+      ]
+    },
+    {
+      "id": "T-053",
+      "phase": "Fase 4 - API",
+      "title": "[API-14] Endpoint GET /users",
+      "done_when": "Endpoint mengembalikan Unified Envelope; validasi input & role diterapkan.",
+      "verify": "contract test / curl mengembalikan envelope sesuai skema",
+      "depends_on": [],
+      "refs": [
+        "API-14",
+        "BE-09"
+      ]
+    },
+    {
+      "id": "T-054",
+      "phase": "Fase 4 - API",
+      "title": "[API-15] Endpoint POST /users",
+      "done_when": "Endpoint mengembalikan Unified Envelope; validasi input & role diterapkan.",
+      "verify": "contract test / curl mengembalikan envelope sesuai skema",
+      "depends_on": [],
+      "refs": [
+        "API-15",
+        "BE-09"
+      ]
+    },
+    {
+      "id": "T-055",
+      "phase": "Fase 5 - Frontend",
+      "title": "[FE-01] Layar Login PIN",
+      "done_when": "Layar menangani state loading/data/empty/error; memakai domain model.",
+      "verify": "UI test / manual run: semua state tampil",
+      "depends_on": [],
+      "refs": [
+        "FE-01",
+        "FR-01"
+      ]
+    },
+    {
+      "id": "T-056",
+      "phase": "Fase 5 - Frontend",
+      "title": "[FE-02] Layar Buka/Tutup Shift",
+      "done_when": "Layar menangani state loading/data/empty/error; memakai domain model.",
+      "verify": "UI test / manual run: semua state tampil",
+      "depends_on": [],
+      "refs": [
+        "FE-02",
+        "FR-02"
+      ]
+    },
+    {
+      "id": "T-057",
+      "phase": "Fase 5 - Frontend",
+      "title": "[FE-03] Layar Katalog Produk",
+      "done_when": "Layar menangani state loading/data/empty/error; memakai domain model.",
+      "verify": "UI test / manual run: semua state tampil",
+      "depends_on": [],
+      "refs": [
+        "FE-03",
+        "FR-03"
+      ]
+    },
+    {
+      "id": "T-058",
+      "phase": "Fase 5 - Frontend",
+      "title": "[FE-04] Layar Form Produk",
+      "done_when": "Layar menangani state loading/data/empty/error; memakai domain model.",
+      "verify": "UI test / manual run: semua state tampil",
+      "depends_on": [],
+      "refs": [
+        "FE-04",
+        "FR-03"
+      ]
+    },
+    {
+      "id": "T-059",
+      "phase": "Fase 5 - Frontend",
+      "title": "[FE-05] Layar Layar Kasir (Keranjang)",
+      "done_when": "Layar menangani state loading/data/empty/error; memakai domain model.",
+      "verify": "UI test / manual run: semua state tampil",
+      "depends_on": [],
+      "refs": [
+        "FE-05",
+        "FR-05"
+      ]
+    },
+    {
+      "id": "T-060",
+      "phase": "Fase 5 - Frontend",
+      "title": "[FE-06] Layar Pembayaran",
+      "done_when": "Layar menangani state loading/data/empty/error; memakai domain model.",
+      "verify": "UI test / manual run: semua state tampil",
+      "depends_on": [],
+      "refs": [
+        "FE-06",
+        "FR-06"
+      ]
+    },
+    {
+      "id": "T-061",
+      "phase": "Fase 5 - Frontend",
+      "title": "[FE-07] Layar Stok & Opname",
+      "done_when": "Layar menangani state loading/data/empty/error; memakai domain model.",
+      "verify": "UI test / manual run: semua state tampil",
+      "depends_on": [],
+      "refs": [
+        "FE-07",
+        "FR-04"
+      ]
+    },
+    {
+      "id": "T-062",
+      "phase": "Fase 5 - Frontend",
+      "title": "[FE-08] Layar Status Sinkronisasi & Antrean",
+      "done_when": "Layar menangani state loading/data/empty/error; memakai domain model.",
+      "verify": "UI test / manual run: semua state tampil",
+      "depends_on": [],
+      "refs": [
+        "FE-08",
+        "FR-07"
+      ]
+    },
+    {
+      "id": "T-063",
+      "phase": "Fase 5 - Frontend",
+      "title": "[FE-09] Layar Laporan Penjualan",
+      "done_when": "Layar menangani state loading/data/empty/error; memakai domain model.",
+      "verify": "UI test / manual run: semua state tampil",
+      "depends_on": [],
+      "refs": [
+        "FE-09",
+        "FR-08"
+      ]
+    },
+    {
+      "id": "T-064",
+      "phase": "Fase 5 - Frontend",
+      "title": "[FE-10] Layar Manajemen Pengguna",
+      "done_when": "Layar menangani state loading/data/empty/error; memakai domain model.",
+      "verify": "UI test / manual run: semua state tampil",
+      "depends_on": [],
+      "refs": [
+        "FE-10",
+        "FR-09"
+      ]
+    },
+    {
+      "id": "T-065",
+      "phase": "Fase 6 - Integrasi",
+      "title": "Integrasi FE↔API + offline cache/sync",
+      "done_when": "Data mengalir end-to-end; mode offline/sync berfungsi sesuai sync_mode.",
+      "verify": "smoke E2E lulus; uji putus koneksi",
+      "depends_on": []
+    },
+    {
+      "id": "T-066",
+      "phase": "Fase 6 - Integrasi",
+      "title": "Audit akhir (traceability, layer, index)",
+      "done_when": "Semua FR MUST ter-trace ke FE+BE+DB+API; tidak ada BLOCKER.",
+      "verify": "bun run orchestrator/validate.ts -> APPROVE_GATE",
+      "depends_on": [],
+      "refs": [
+        "FR-01",
+        "FR-02",
+        "FR-03",
+        "FR-04",
+        "FR-05",
+        "FR-06",
+        "FR-07"
+      ]
+    }
+  ]
+}

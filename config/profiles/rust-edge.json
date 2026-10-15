@@ -1,0 +1,47 @@
+{
+  "id": "rust-edge",
+  "name": "Rust Edge (Axum + SQLx)",
+  "description": "Layanan berperforma tinggi/edge dengan Rust Axum + SQLx + PostgreSQL, FE SvelteKit/Tauri.",
+  "tags": ["rust", "edge", "performance", "api"],
+  "project_meta": {
+    "name": "edge-service",
+    "platforms": ["Backend API only", "Desktop"],
+    "architecture_style": "Hexagonal (Ports & Adapters)",
+    "description": "Layanan API berperforma tinggi / edge computing."
+  },
+  "tech_stack_state": {
+    "profile": "rust-edge",
+    "platforms": ["Backend API only", "Desktop"],
+    "sync_mode": "online-only",
+    "fe": {
+      "ui_framework": "SvelteKit",
+      "presentation_pattern": "Signals (Solid/Angular/Preact)",
+      "di": "Manual DI / Composition Root",
+      "networking": "Fetch API",
+      "navigation": "SvelteKit Router"
+    },
+    "be": {
+      "language": "Rust",
+      "framework": "Axum",
+      "architecture_style": "Hexagonal (Ports & Adapters)",
+      "system_style": "Microservices",
+      "auth": "JWT Access + Refresh Rotation"
+    },
+    "db": {
+      "server_engine": "PostgreSQL",
+      "orm": "SQLx",
+      "migration_tool": "sqlx migrate (Atlas)",
+      "primary_key_strategy": "UUID v7"
+    },
+    "repo_strategy": "monorepo",
+    "module_strategy": "clean-architecture-rings",
+    "standards": {
+      "domain_purity": true,
+      "strict_mapping": true,
+      "error_handling": "Result<T, E>",
+      "naming": { "db": "snake_case_plural", "api": "snake_case", "linter": "clippy + rustfmt" },
+      "status": "LOCKED"
+    }
+  },
+  "notes": ["Pilih bila butuh latensi rendah & konsumsi memori kecil."]
+}

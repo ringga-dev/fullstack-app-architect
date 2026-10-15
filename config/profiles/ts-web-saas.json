@@ -1,0 +1,47 @@
+{
+  "id": "ts-web-saas",
+  "name": "TypeScript Web SaaS (Fullstack TS)",
+  "description": "SaaS berbasis web online-only dengan full TypeScript (Next.js + NestJS + PostgreSQL/Prisma).",
+  "tags": ["saas", "web", "typescript", "online-only"],
+  "project_meta": {
+    "name": "saas-app",
+    "platforms": ["Web"],
+    "architecture_style": "Clean Architecture",
+    "description": "Aplikasi SaaS multi-tenant berbasis web."
+  },
+  "tech_stack_state": {
+    "profile": "ts-web-saas",
+    "platforms": ["Web"],
+    "sync_mode": "online-only",
+    "fe": {
+      "ui_framework": "Next.js",
+      "presentation_pattern": "Redux Toolkit",
+      "di": "Manual DI / Composition Root",
+      "networking": "TanStack Query (React Query)",
+      "navigation": "TanStack Router"
+    },
+    "be": {
+      "language": "TypeScript / Node.js",
+      "framework": "NestJS",
+      "architecture_style": "Clean Architecture",
+      "system_style": "Modular Monolith",
+      "auth": "OAuth2 / OIDC + JWT"
+    },
+    "db": {
+      "server_engine": "PostgreSQL",
+      "orm": "Prisma",
+      "migration_tool": "Prisma Migrate",
+      "primary_key_strategy": "UUID v7"
+    },
+    "repo_strategy": "monorepo",
+    "module_strategy": "package-by-feature",
+    "standards": {
+      "domain_purity": true,
+      "strict_mapping": true,
+      "error_handling": "Result<T, E>",
+      "naming": { "db": "snake_case_plural", "api": "camelCase", "linter": "ESLint + Prettier" },
+      "status": "LOCKED"
+    }
+  },
+  "notes": ["Contoh preset, bukan kewajiban. Semua field boleh di-override."]
+}

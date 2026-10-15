@@ -1,0 +1,278 @@
+# BACKLOG - Atomic Tasks
+
+> Project: **pos-kasir** | Sync: offline-first | Total task: 66
+> Aturan AI murah: kerjakan SATU task per waktu. Jangan lanjut sebelum `Verify` lulus.
+
+## Fase 1 - Setup
+
+- [ ] **T-001** Inisialisasi workspace (Kotlin + Compose Multiplatform (CMP)) & linter detekt + ktlint
+      - Done when: Repo ter-build, linter & formatter jalan tanpa error.
+      - Verify: jalankan linter (detekt + ktlint) -> 0 error
+- [ ] **T-002** Konfigurasi Flyway & koneksi DB PostgreSQL
+      - Done when: Migration tool siap; koneksi DB sukses.
+      - Verify: Flyway status / migrate info
+## Fase 2 - Domain (BE)
+
+- [ ] **T-003** [BE-01] Domain model + rules murni (AuthenticateCashier)
+      - refs: BE-01, FR-01
+      - Done when: Model & aturan bisnis murni ada; tanpa impor ORM/HTTP/JSON.
+      - Verify: unit test domain lulus; grep tidak menemukan impor framework di folder domain
+- [ ] **T-004** [BE-01] UseCase AuthenticateCashier
+      - refs: BE-01
+      - Done when: UseCase memanggil repository interface & mengembalikan Result<T,E>.
+      - Verify: unit test usecase (mock repo) lulus
+- [ ] **T-005** [BE-02] Domain model + rules murni (ManageShift)
+      - refs: BE-02, FR-02
+      - Done when: Model & aturan bisnis murni ada; tanpa impor ORM/HTTP/JSON.
+      - Verify: unit test domain lulus; grep tidak menemukan impor framework di folder domain
+- [ ] **T-006** [BE-02] UseCase ManageShift (dalam transaksi)
+      - refs: BE-02
+      - Done when: UseCase memanggil repository interface & mengembalikan Result<T,E>.
+      - Verify: unit test usecase (mock repo) lulus
+- [ ] **T-007** [BE-03] Domain model + rules murni (ManageProduct)
+      - refs: BE-03, FR-03
+      - Done when: Model & aturan bisnis murni ada; tanpa impor ORM/HTTP/JSON.
+      - Verify: unit test domain lulus; grep tidak menemukan impor framework di folder domain
+- [ ] **T-008** [BE-03] UseCase ManageProduct (dalam transaksi)
+      - refs: BE-03
+      - Done when: UseCase memanggil repository interface & mengembalikan Result<T,E>.
+      - Verify: unit test usecase (mock repo) lulus
+- [ ] **T-009** [BE-04] Domain model + rules murni (ManageStock)
+      - refs: BE-04, FR-04
+      - Done when: Model & aturan bisnis murni ada; tanpa impor ORM/HTTP/JSON.
+      - Verify: unit test domain lulus; grep tidak menemukan impor framework di folder domain
+- [ ] **T-010** [BE-04] UseCase ManageStock (dalam transaksi)
+      - refs: BE-04
+      - Done when: UseCase memanggil repository interface & mengembalikan Result<T,E>.
+      - Verify: unit test usecase (mock repo) lulus
+- [ ] **T-011** [BE-05] Domain model + rules murni (CreateSale)
+      - refs: BE-05, FR-05
+      - Done when: Model & aturan bisnis murni ada; tanpa impor ORM/HTTP/JSON.
+      - Verify: unit test domain lulus; grep tidak menemukan impor framework di folder domain
+- [ ] **T-012** [BE-05] UseCase CreateSale (dalam transaksi)
+      - refs: BE-05
+      - Done when: UseCase memanggil repository interface & mengembalikan Result<T,E>.
+      - Verify: unit test usecase (mock repo) lulus
+- [ ] **T-013** [BE-06] Domain model + rules murni (ProcessPayment)
+      - refs: BE-06, FR-06
+      - Done when: Model & aturan bisnis murni ada; tanpa impor ORM/HTTP/JSON.
+      - Verify: unit test domain lulus; grep tidak menemukan impor framework di folder domain
+- [ ] **T-014** [BE-06] UseCase ProcessPayment (dalam transaksi)
+      - refs: BE-06
+      - Done when: UseCase memanggil repository interface & mengembalikan Result<T,E>.
+      - Verify: unit test usecase (mock repo) lulus
+- [ ] **T-015** [BE-07] Domain model + rules murni (SyncOfflineBatch)
+      - refs: BE-07, FR-07
+      - Done when: Model & aturan bisnis murni ada; tanpa impor ORM/HTTP/JSON.
+      - Verify: unit test domain lulus; grep tidak menemukan impor framework di folder domain
+- [ ] **T-016** [BE-07] UseCase SyncOfflineBatch (dalam transaksi)
+      - refs: BE-07
+      - Done when: UseCase memanggil repository interface & mengembalikan Result<T,E>.
+      - Verify: unit test usecase (mock repo) lulus
+- [ ] **T-017** [BE-08] Domain model + rules murni (GenerateSalesReport)
+      - refs: BE-08, FR-08
+      - Done when: Model & aturan bisnis murni ada; tanpa impor ORM/HTTP/JSON.
+      - Verify: unit test domain lulus; grep tidak menemukan impor framework di folder domain
+- [ ] **T-018** [BE-08] UseCase GenerateSalesReport
+      - refs: BE-08
+      - Done when: UseCase memanggil repository interface & mengembalikan Result<T,E>.
+      - Verify: unit test usecase (mock repo) lulus
+- [ ] **T-019** [BE-09] Domain model + rules murni (ManageUser)
+      - refs: BE-09, FR-09
+      - Done when: Model & aturan bisnis murni ada; tanpa impor ORM/HTTP/JSON.
+      - Verify: unit test domain lulus; grep tidak menemukan impor framework di folder domain
+- [ ] **T-020** [BE-09] UseCase ManageUser (dalam transaksi)
+      - refs: BE-09
+      - Done when: UseCase memanggil repository interface & mengembalikan Result<T,E>.
+      - Verify: unit test usecase (mock repo) lulus
+## Fase 3 - Data & Migrasi
+
+- [ ] **T-021** [DB-01] Tabel users + index
+      - refs: DB-01
+      - Done when: DDL/ORM entity dibuat dengan kolom id, created_at, updated_at, deleted_at, version; index dibuat.
+      - Verify: migrate up sukses; cek index pada tabel users
+- [ ] **T-022** [DB-02] Tabel shifts + index
+      - refs: DB-02
+      - Done when: DDL/ORM entity dibuat dengan kolom id, created_at, updated_at, deleted_at, version; index dibuat.
+      - Verify: migrate up sukses; cek index pada tabel shifts
+- [ ] **T-023** [DB-03] Tabel categories + index
+      - refs: DB-03
+      - Done when: DDL/ORM entity dibuat dengan kolom id, created_at, updated_at, deleted_at, version; index dibuat.
+      - Verify: migrate up sukses; cek index pada tabel categories
+- [ ] **T-024** [DB-04] Tabel products + index
+      - refs: DB-04
+      - Done when: DDL/ORM entity dibuat dengan kolom id, created_at, updated_at, deleted_at, version; index dibuat.
+      - Verify: migrate up sukses; cek index pada tabel products
+- [ ] **T-025** [DB-05] Tabel stock_movements + index
+      - refs: DB-05
+      - Done when: DDL/ORM entity dibuat dengan kolom id, created_at, updated_at, deleted_at, version; index dibuat.
+      - Verify: migrate up sukses; cek index pada tabel stock_movements
+- [ ] **T-026** [DB-06] Tabel sales + index
+      - refs: DB-06
+      - Done when: DDL/ORM entity dibuat dengan kolom id, created_at, updated_at, deleted_at, version; index dibuat.
+      - Verify: migrate up sukses; cek index pada tabel sales
+- [ ] **T-027** [DB-07] Tabel sale_items + index
+      - refs: DB-07
+      - Done when: DDL/ORM entity dibuat dengan kolom id, created_at, updated_at, deleted_at, version; index dibuat.
+      - Verify: migrate up sukses; cek index pada tabel sale_items
+- [ ] **T-028** [DB-08] Tabel payments + index
+      - refs: DB-08
+      - Done when: DDL/ORM entity dibuat dengan kolom id, created_at, updated_at, deleted_at, version; index dibuat.
+      - Verify: migrate up sukses; cek index pada tabel payments
+- [ ] **T-029** [DB-09] Tabel sync_log + index
+      - refs: DB-09
+      - Done when: DDL/ORM entity dibuat dengan kolom id, created_at, updated_at, deleted_at, version; index dibuat.
+      - Verify: migrate up sukses; cek index pada tabel sync_log
+- [ ] **T-030** [DB-10] Tabel stores + index
+      - refs: DB-10
+      - Done when: DDL/ORM entity dibuat dengan kolom id, created_at, updated_at, deleted_at, version; index dibuat.
+      - Verify: migrate up sukses; cek index pada tabel stores
+- [ ] **T-031** [BE-01] Repository impl + Mapper (Entity<->Domain)
+      - refs: BE-01
+      - Done when: RepositoryImpl mengimplementasikan port domain; mapper eksplisit tersedia.
+      - Verify: integration test repo terhadap DB lulus
+- [ ] **T-032** [BE-02] Repository impl + Mapper (Entity<->Domain)
+      - refs: BE-02
+      - Done when: RepositoryImpl mengimplementasikan port domain; mapper eksplisit tersedia.
+      - Verify: integration test repo terhadap DB lulus
+- [ ] **T-033** [BE-03] Repository impl + Mapper (Entity<->Domain)
+      - refs: BE-03
+      - Done when: RepositoryImpl mengimplementasikan port domain; mapper eksplisit tersedia.
+      - Verify: integration test repo terhadap DB lulus
+- [ ] **T-034** [BE-04] Repository impl + Mapper (Entity<->Domain)
+      - refs: BE-04
+      - Done when: RepositoryImpl mengimplementasikan port domain; mapper eksplisit tersedia.
+      - Verify: integration test repo terhadap DB lulus
+- [ ] **T-035** [BE-05] Repository impl + Mapper (Entity<->Domain)
+      - refs: BE-05
+      - Done when: RepositoryImpl mengimplementasikan port domain; mapper eksplisit tersedia.
+      - Verify: integration test repo terhadap DB lulus
+- [ ] **T-036** [BE-06] Repository impl + Mapper (Entity<->Domain)
+      - refs: BE-06
+      - Done when: RepositoryImpl mengimplementasikan port domain; mapper eksplisit tersedia.
+      - Verify: integration test repo terhadap DB lulus
+- [ ] **T-037** [BE-07] Repository impl + Mapper (Entity<->Domain)
+      - refs: BE-07
+      - Done when: RepositoryImpl mengimplementasikan port domain; mapper eksplisit tersedia.
+      - Verify: integration test repo terhadap DB lulus
+- [ ] **T-038** [BE-08] Repository impl + Mapper (Entity<->Domain)
+      - refs: BE-08
+      - Done when: RepositoryImpl mengimplementasikan port domain; mapper eksplisit tersedia.
+      - Verify: integration test repo terhadap DB lulus
+- [ ] **T-039** [BE-09] Repository impl + Mapper (Entity<->Domain)
+      - refs: BE-09
+      - Done when: RepositoryImpl mengimplementasikan port domain; mapper eksplisit tersedia.
+      - Verify: integration test repo terhadap DB lulus
+## Fase 4 - API
+
+- [ ] **T-040** [API-01] Endpoint POST /auth/login
+      - refs: API-01, BE-01
+      - Done when: Endpoint mengembalikan Unified Envelope; validasi input & role diterapkan.
+      - Verify: contract test / curl mengembalikan envelope sesuai skema
+- [ ] **T-041** [API-02] Endpoint POST /shifts/open
+      - refs: API-02, BE-02
+      - Done when: Endpoint mengembalikan Unified Envelope; validasi input & role diterapkan.
+      - Verify: contract test / curl mengembalikan envelope sesuai skema
+- [ ] **T-042** [API-03] Endpoint POST /shifts/close
+      - refs: API-03, BE-02
+      - Done when: Endpoint mengembalikan Unified Envelope; validasi input & role diterapkan.
+      - Verify: contract test / curl mengembalikan envelope sesuai skema
+- [ ] **T-043** [API-04] Endpoint GET /products
+      - refs: API-04, BE-03
+      - Done when: Endpoint mengembalikan Unified Envelope; validasi input & role diterapkan.
+      - Verify: contract test / curl mengembalikan envelope sesuai skema
+- [ ] **T-044** [API-05] Endpoint POST /products
+      - refs: API-05, BE-03
+      - Done when: Endpoint mengembalikan Unified Envelope; validasi input & role diterapkan.
+      - Verify: contract test / curl mengembalikan envelope sesuai skema
+- [ ] **T-045** [API-06] Endpoint PATCH /products/{id}
+      - refs: API-06, BE-03
+      - Done when: Endpoint mengembalikan Unified Envelope; validasi input & role diterapkan.
+      - Verify: contract test / curl mengembalikan envelope sesuai skema
+- [ ] **T-046** [API-07] Endpoint GET /stock-movements
+      - refs: API-07, BE-04
+      - Done when: Endpoint mengembalikan Unified Envelope; validasi input & role diterapkan.
+      - Verify: contract test / curl mengembalikan envelope sesuai skema
+- [ ] **T-047** [API-08] Endpoint POST /stock-movements
+      - refs: API-08, BE-04
+      - Done when: Endpoint mengembalikan Unified Envelope; validasi input & role diterapkan.
+      - Verify: contract test / curl mengembalikan envelope sesuai skema
+- [ ] **T-048** [API-09] Endpoint POST /sales
+      - refs: API-09, BE-05
+      - Done when: Endpoint mengembalikan Unified Envelope; validasi input & role diterapkan.
+      - Verify: contract test / curl mengembalikan envelope sesuai skema
+- [ ] **T-049** [API-10] Endpoint POST /sales/{id}/payments
+      - refs: API-10, BE-06
+      - Done when: Endpoint mengembalikan Unified Envelope; validasi input & role diterapkan.
+      - Verify: contract test / curl mengembalikan envelope sesuai skema
+- [ ] **T-050** [API-11] Endpoint POST /sync/batch
+      - refs: API-11, BE-07
+      - Done when: Endpoint mengembalikan Unified Envelope; validasi input & role diterapkan.
+      - Verify: contract test / curl mengembalikan envelope sesuai skema
+- [ ] **T-051** [API-12] Endpoint GET /sync/status
+      - refs: API-12, BE-07
+      - Done when: Endpoint mengembalikan Unified Envelope; validasi input & role diterapkan.
+      - Verify: contract test / curl mengembalikan envelope sesuai skema
+- [ ] **T-052** [API-13] Endpoint GET /reports/sales
+      - refs: API-13, BE-08
+      - Done when: Endpoint mengembalikan Unified Envelope; validasi input & role diterapkan.
+      - Verify: contract test / curl mengembalikan envelope sesuai skema
+- [ ] **T-053** [API-14] Endpoint GET /users
+      - refs: API-14, BE-09
+      - Done when: Endpoint mengembalikan Unified Envelope; validasi input & role diterapkan.
+      - Verify: contract test / curl mengembalikan envelope sesuai skema
+- [ ] **T-054** [API-15] Endpoint POST /users
+      - refs: API-15, BE-09
+      - Done when: Endpoint mengembalikan Unified Envelope; validasi input & role diterapkan.
+      - Verify: contract test / curl mengembalikan envelope sesuai skema
+## Fase 5 - Frontend
+
+- [ ] **T-055** [FE-01] Layar Login PIN
+      - refs: FE-01, FR-01
+      - Done when: Layar menangani state loading/data/empty/error; memakai domain model.
+      - Verify: UI test / manual run: semua state tampil
+- [ ] **T-056** [FE-02] Layar Buka/Tutup Shift
+      - refs: FE-02, FR-02
+      - Done when: Layar menangani state loading/data/empty/error; memakai domain model.
+      - Verify: UI test / manual run: semua state tampil
+- [ ] **T-057** [FE-03] Layar Katalog Produk
+      - refs: FE-03, FR-03
+      - Done when: Layar menangani state loading/data/empty/error; memakai domain model.
+      - Verify: UI test / manual run: semua state tampil
+- [ ] **T-058** [FE-04] Layar Form Produk
+      - refs: FE-04, FR-03
+      - Done when: Layar menangani state loading/data/empty/error; memakai domain model.
+      - Verify: UI test / manual run: semua state tampil
+- [ ] **T-059** [FE-05] Layar Layar Kasir (Keranjang)
+      - refs: FE-05, FR-05
+      - Done when: Layar menangani state loading/data/empty/error; memakai domain model.
+      - Verify: UI test / manual run: semua state tampil
+- [ ] **T-060** [FE-06] Layar Pembayaran
+      - refs: FE-06, FR-06
+      - Done when: Layar menangani state loading/data/empty/error; memakai domain model.
+      - Verify: UI test / manual run: semua state tampil
+- [ ] **T-061** [FE-07] Layar Stok & Opname
+      - refs: FE-07, FR-04
+      - Done when: Layar menangani state loading/data/empty/error; memakai domain model.
+      - Verify: UI test / manual run: semua state tampil
+- [ ] **T-062** [FE-08] Layar Status Sinkronisasi & Antrean
+      - refs: FE-08, FR-07
+      - Done when: Layar menangani state loading/data/empty/error; memakai domain model.
+      - Verify: UI test / manual run: semua state tampil
+- [ ] **T-063** [FE-09] Layar Laporan Penjualan
+      - refs: FE-09, FR-08
+      - Done when: Layar menangani state loading/data/empty/error; memakai domain model.
+      - Verify: UI test / manual run: semua state tampil
+- [ ] **T-064** [FE-10] Layar Manajemen Pengguna
+      - refs: FE-10, FR-09
+      - Done when: Layar menangani state loading/data/empty/error; memakai domain model.
+      - Verify: UI test / manual run: semua state tampil
+## Fase 6 - Integrasi
+
+- [ ] **T-065** Integrasi FE↔API + offline cache/sync
+      - Done when: Data mengalir end-to-end; mode offline/sync berfungsi sesuai sync_mode.
+      - Verify: smoke E2E lulus; uji putus koneksi
+- [ ] **T-066** Audit akhir (traceability, layer, index)
+      - refs: FR-01, FR-02, FR-03, FR-04, FR-05, FR-06, FR-07
+      - Done when: Semua FR MUST ter-trace ke FE+BE+DB+API; tidak ada BLOCKER.
+      - Verify: bun run orchestrator/validate.ts -> APPROVE_GATE

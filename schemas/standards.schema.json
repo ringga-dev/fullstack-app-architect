@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TechStackStateSchema",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "profile": { "type": "string" },
+    "platforms": { "type": "array", "items": { "type": "string" } },
+    "sync_mode": {
+      "type": "string",
+      "enum": ["offline-first", "online-only", "real-time", "hybrid", "local-only", "configurable"]
+    },
+    "fe": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "ui_framework": { "type": "string" },
+        "presentation_pattern": { "type": "string" },
+        "di": { "type": "string" },
+        "networking": { "type": "string" },
+        "navigation": { "type": "string" },
+        "local_db": { "type": "string" }
+      }
+    },
+    "be": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "language": { "type": "string" },
+        "framework": { "type": "string" },
+        "architecture_style": { "type": "string" },
+        "system_style": { "type": "string" },
+        "auth": { "type": "string" }
+      }
+    },
+    "db": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "server_engine": { "type": "string" },
+        "orm": { "type": "string" },
+        "migration_tool": { "type": "string" },
+        "primary_key_strategy": { "type": "string" }
+      }
+    },
+    "repo_strategy": { "type": "string", "enum": ["monorepo", "multi-repo"] },
+    "module_strategy": {
+      "type": "string",
+      "enum": ["strict-multi-module", "package-by-feature", "package-by-layer"]
+    },
+    "standards": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "domain_purity": { "type": "boolean" },
+        "strict_mapping": { "type": "boolean" },
+        "error_handling": { "type": "string" },
+        "naming": { "type": "object" },
+        "status": { "type": "string", "enum": ["DRAFT", "LOCKED"] }
+      }
+    }
+  }
+}

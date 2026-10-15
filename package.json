@@ -1,0 +1,92 @@
+{
+  "name": "fullstack-app-architect",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "license": "MIT",
+  "author": "Fullstack App Architect contributors",
+  "description": "Multi-Agent Architecture Engine — Orchestrator + 7 sub-agents for traceable fullstack blueprints.",
+  "keywords": [
+    "opencode",
+    "multi-agent",
+    "architecture",
+    "orchestrator",
+    "blueprint",
+    "prd",
+    "clean-architecture",
+    "code-generation",
+    "ai-agent",
+    "bun"
+  ],
+  "homepage": "https://github.com/CHANGE_ME/fullstack-app-architect#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CHANGE_ME/fullstack-app-architect.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CHANGE_ME/fullstack-app-architect/issues"
+  },
+  "engines": {
+    "node": ">=20.11",
+    "bun": ">=1.1"
+  },
+  "files": [
+    "agents/",
+    "orchestrator/",
+    "config/",
+    "templates/",
+    "examples/",
+    "schemas/",
+    "adapters/",
+    "bin/",
+    "README.md",
+    "RUNBOOK.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "bin": {
+    "multi-agent-architect": "./bin/multi-agent-architect"
+  },
+  "exports": {
+    "./state": "./orchestrator/state.ts",
+    "./validator": "./orchestrator/validator.ts",
+    "./runner": "./orchestrator/runner.ts",
+    "./export": "./orchestrator/export.ts",
+    "./catalog": "./orchestrator/catalog.ts",
+    "./prompt": "./orchestrator/prompt.ts",
+    "./tasks": "./orchestrator/tasks.ts",
+    "./render": "./orchestrator/render.ts",
+    "./ci": "./orchestrator/ci.ts"
+  },
+  "scripts": {
+    "start": "bun run orchestrator/index.ts",
+    "dev": "bun --watch orchestrator/index.ts",
+    "bootstrap": "bun run orchestrator/index.ts",
+    "validate": "bun run orchestrator/validate.ts",
+    "catalog": "bun run orchestrator/catalog.ts summary",
+    "profiles": "bun run orchestrator/catalog.ts list",
+    "profile:show": "bun run orchestrator/catalog.ts show",
+    "profile:state": "bun run orchestrator/catalog.ts state",
+    "prompt": "bun run orchestrator/prompt.ts",
+    "prompts:cheap": "bun run orchestrator/prompt.ts --all --tier cheap --out",
+    "tasks": "bun run orchestrator/tasks.ts --out",
+    "render": "bun run orchestrator/render.ts",
+    "render:stdout": "bun run orchestrator/render.ts --stdout",
+    "ci": "bun run orchestrator/ci.ts",
+    "seed:pos": "bun run examples/pos-kasir/seed.ts",
+    "seed:pos-mt": "bun run examples/pos-kasir-multitenant/seed.ts",
+    "export:opencode": "bun run orchestrator/export.ts opencode",
+    "export:antigraviti": "bun run orchestrator/export.ts antigraviti",
+    "export:hermes": "bun run orchestrator/export.ts hermes",
+    "export:claude": "bun run orchestrator/export.ts claude",
+    "export:cursor": "bun run orchestrator/export.ts cursor",
+    "export:cline": "bun run orchestrator/export.ts cline",
+    "export:all": "bun run orchestrator/export.ts all",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  }
+}

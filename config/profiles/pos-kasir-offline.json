@@ -1,0 +1,51 @@
+{
+  "id": "pos-kasir-offline",
+  "name": "POS Kasir Offline-First (Kotlin Fullstack)",
+  "description": "Aplikasi kasir/POS offline-first multi-platform (Android/iOS/Desktop/Web) dengan backend Kotlin Ktor + PostgreSQL/Exposed.",
+  "tags": ["pos", "offline-first", "kotlin", "multiplatform"],
+  "project_meta": {
+    "name": "pos-kasir",
+    "platforms": ["Android", "iOS", "Desktop", "Web"],
+    "architecture_style": "Clean Architecture",
+    "description": "Aplikasi kasir/POS offline-first: produk, stok, transaksi, pembayaran, sinkronisasi."
+  },
+  "tech_stack_state": {
+    "profile": "pos-kasir-offline",
+    "platforms": ["Android", "iOS", "Desktop", "Web"],
+    "sync_mode": "offline-first",
+    "fe": {
+      "ui_framework": "Compose Multiplatform",
+      "presentation_pattern": "MVI",
+      "di": "Koin",
+      "networking": "Ktor Client",
+      "navigation": "Voyager",
+      "local_db": "SQLDelight"
+    },
+    "be": {
+      "language": "Kotlin",
+      "framework": "Ktor",
+      "architecture_style": "Clean Architecture",
+      "system_style": "Modular Monolith",
+      "auth": "JWT Access + Refresh Rotation, PIN lokal untuk kasir offline"
+    },
+    "db": {
+      "server_engine": "PostgreSQL",
+      "orm": "Exposed",
+      "migration_tool": "Flyway",
+      "primary_key_strategy": "UUID v7"
+    },
+    "repo_strategy": "monorepo",
+    "module_strategy": "package-by-feature",
+    "standards": {
+      "domain_purity": true,
+      "strict_mapping": true,
+      "error_handling": "Result<T, E>",
+      "naming": { "db": "snake_case_plural", "api": "snake_case", "linter": "detekt + ktlint" },
+      "status": "LOCKED"
+    }
+  },
+  "notes": [
+    "FE dapat ditukar bebas (Flutter/React/Next.js) tanpa mengubah BE/DB/API.",
+    "sync_mode dapat diubah ke hybrid bila butuh sinkronisasi real-time saat online."
+  ]
+}

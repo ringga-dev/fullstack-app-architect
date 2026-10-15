@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PRDStateSchema",
+  "type": "object",
+  "required": ["functional_requirements", "user_flows"],
+  "additionalProperties": true,
+  "properties": {
+    "functional_requirements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "feature", "priority", "actors"],
+        "additionalProperties": true,
+        "properties": {
+          "id": { "type": "string", "pattern": "^FR-[0-9]{2,}$" },
+          "feature": { "type": "string", "minLength": 2 },
+          "priority": { "type": "string", "enum": ["MUST", "SHOULD", "COULD", "WON'T"] },
+          "actors": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+          "description": { "type": "string" }
+        }
+      },
+      "minItems": 0
+    },
+    "user_flows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "steps"],
+        "additionalProperties": true,
+        "properties": {
+          "name": { "type": "string", "minLength": 2 },
+          "steps": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+        }
+      },
+      "minItems": 0
+    }
+  }
+}

@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# bin/multi-agent-architect — Universal CLI launcher.
+# Mesin portable: Bun (disarankan) atau Node.js >= 20.11 dengan `tsx`.
+set -euo pipefail
+
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+
+# Bun pertama (paling cepat, tanpa dependensi).
+if command -v bun >/dev/null 2>&1; then
+  exec bun run "$DIR/orchestrator/index.ts" "$@"
+fi
+
+# tsx di PATH.
+if command -v tsx >/dev/null 2>&1; then
+  exec tsx "$DIR/orchestrator/index.ts" "$@"
+fi
+
+# tsx lokal (devDependency).
+if [ -x "$DIR/node_modules/.bin/tsx" ]; then
+  exec "$DIR/node_modules/.bin/tsx" "$DIR/orchestrator/index.ts" "$@"
+fi
+
+# npx tsx (butuh Node.js).
+if command -v npx >/dev/null 2>&1; then
+  exec npx --yes tsx "$DIR/orchestrator/index.ts" "$@"
+fi
+
+echo "Error: tidak ada runtime TypeScript yang ditemukan." >&2
+echo "Pasang salah satu: Bun (https://bun.sh) atau Node.js >= 20.11 + 'npm i -g tsx'." >&2
+exit 1

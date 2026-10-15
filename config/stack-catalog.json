@@ -1,0 +1,454 @@
+{
+  "$schema": "./stack-catalog.schema.json",
+  "version": "1.0.0",
+  "description": "Katalog pilihan ekosistem untuk Agen #0 (Discovery). Semua opsi BEBAS dipilih per proyek; tidak ada yang wajib. Profile hanyalah preset di config/profiles/.",
+  "principles": [
+    "Konfigurasi bebas (free-form): setiap proyek boleh mengombinasikan apa pun dari katalog ini.",
+    "Profile = preset yang bisa di-override, bukan penguncian.",
+    "Semua keputusan akhir ditulis ke tech_stack_state dan ditandai LOCKED sebelum Gerbang 2."
+  ],
+  "platforms": {
+    "mobile": ["Android", "iOS", "KaiOS", "HarmonyOS"],
+    "desktop": ["Windows", "macOS", "Linux"],
+    "web": ["Web (SPA)", "Web (SSR/SSG)", "PWA"],
+    "device": ["Tablet", "Wearable", "TV", "Kiosk/POS Terminal", "Embedded/IoT"],
+    "backend_only": ["Backend API only", "CLI", "Headless/Service"]
+  },
+  "sync_modes": {
+    "values": ["online-only", "offline-first", "real-time", "hybrid", "local-only", "configurable"],
+    "notes": {
+      "offline-first": "Butuh local DB, sync queue, resolusi konflik, idempotency key.",
+      "real-time": "WebSocket/SSE/gRPC streaming.",
+      "hybrid": "Offline-first + sinkronisasi real-time saat online.",
+      "configurable": "Mode ditentukan per-deployment/tenant oleh user."
+    }
+  },
+  "frontend": {
+    "web_frameworks": {
+      "react_family": ["React", "Next.js", "Remix", "Gatsby", "Expo (Web)", "React Router v7", "TanStack Start", "Waku"],
+      "vue_family": ["Vue 3", "Nuxt", "VuePress", "VitePress", "PrimeVue Starter"],
+      "svelte_family": ["Svelte", "SvelteKit", "Elder.js"],
+      "angular_family": ["Angular", "Analog", "Angular Universal"],
+      "solid_family": ["Solid", "SolidStart"],
+      "others": ["Qwik / Qwik City", "Astro", "Ember", "Marko", "Preact", "Lit", "Stencil", "Alpine.js", "HTMX", "Hotwire/Turbo"]
+    },
+    "mobile_cross_platform": [
+      "Flutter",
+      "React Native (bare)",
+      "Expo (managed)",
+      "Kotlin Multiplatform + Compose Multiplatform",
+      "Compose Multiplatform (CMP)",
+      ".NET MAUI",
+      "NativeScript",
+      "Ionic + Capacitor",
+      "Capacitor + React/Vue",
+      "Tauri Mobile",
+      "Lynx"
+    ],
+    "mobile_native": [
+      "Jetpack Compose (Android)",
+      "Android Views/XML",
+      "SwiftUI (iOS)",
+      "UIKit (iOS)",
+      "Flutter (both)",
+      "Compose Multiplatform (both)"
+    ],
+    "desktop": [
+      "Electron",
+      "Tauri",
+      "Wails",
+      "Flutter Desktop",
+      "Compose Desktop (CMP)",
+      ".NET MAUI",
+      "Avalonia",
+      "WPF / WinUI 3",
+      "SwiftUI (macOS)",
+      "Qt (C++/PySide)",
+      "GTK (Vala/Rust)",
+      "JavaFX",
+      "Neutralino"
+    ],
+    "ui_component_layers": [
+      "Tailwind CSS",
+      "shadcn/ui",
+      "Radix UI",
+      "Headless UI",
+      "Chakra UI",
+      "Mantine",
+      "Material UI (MUI)",
+      "Ant Design",
+      "Bootstrap",
+      "Vuetify",
+      "PrimeNG / PrimeVue",
+      "daisyUI",
+      "UnoCSS",
+      "Park UI",
+      "NativeBase",
+      "Compose Material 3"
+    ],
+    "presentation_patterns": [
+      "MVI (Unidirectional Data Flow)",
+      "MVVM",
+      "MVP",
+      "BLoC / Cubit",
+      "Redux / Redux Toolkit",
+      "Zustand",
+      "MobX",
+      "Riverpod",
+      "Provider / ChangeNotifier",
+      "Signals (Solid/Angular/Preact)",
+      "XState (state machines)",
+      "Clean Architecture + UDF",
+      "Elm Architecture"
+    ],
+    "di_containers": [
+      "Koin",
+      "Hilt",
+      "Dagger",
+      "Kodein",
+      "Manual DI / Composition Root",
+      "Riverpod",
+      "GetIt",
+      "Nest DI",
+      "tsyringe",
+      "InversifyJS",
+      "Awilix",
+      "Angular DI",
+      "Provider (Flutter)"
+    ],
+    "networking": [
+      "Ktor Client",
+      "Retrofit",
+      "OkHttp",
+      "Axios",
+      "Fetch API",
+      "TanStack Query (React Query)",
+      "SWR",
+      "Apollo GraphQL",
+      "Relay",
+      "URQL",
+      "Dio (Dart)",
+      "http (Dart)",
+      "Alamofire",
+      "URLSession",
+      "gRPC-Web",
+      "Connect-Web"
+    ],
+    "navigation": [
+      "Voyager",
+      "Decompose",
+      "Jetpack Navigation Compose",
+      "React Router",
+      "TanStack Router",
+      "Vue Router",
+      "Nuxt Router",
+      "Angular Router",
+      "SvelteKit Router",
+      "go_router (Flutter)",
+      "Navigator 2.0",
+      "Expo Router",
+      "Wails Router",
+      "Tauri Router"
+    ],
+    "local_db": [
+      "SQLDelight",
+      "Room (KMP)",
+      "Realm",
+      "Drift (Dart)",
+      "ObjectBox",
+      "Isar",
+      "Hive",
+      "WatermelonDB",
+      "Dexie.js (IndexedDB)",
+      "idb (IndexedDB)",
+      "SQLite (better-sqlite3 / sql.js / wa-sqlite)",
+      "PouchDB",
+      "Couchbase Lite",
+      "MMKV",
+      "DataStore / SharedPreferences",
+      "Zustand persist",
+      "RxDB"
+    ]
+  },
+  "backend": {
+    "languages": [
+      "Kotlin",
+      "Java",
+      "TypeScript / Node.js",
+      "JavaScript / Node.js",
+      "Go",
+      "Python",
+      "Rust",
+      "C# / .NET",
+      "PHP",
+      "Ruby",
+      "Elixir",
+      "Scala",
+      "Dart (server)"
+    ],
+    "frameworks": {
+      "kotlin_jvm": ["Ktor", "Spring Boot", "Quarkus", "Micronaut", "http4k", "Javalin", "Vert.x", "Ktor + Koin"],
+      "java": ["Spring Boot", "Quarkus", "Micronaut", "Vert.x", "Dropwizard", "Jakarta EE"],
+      "typescript_node": ["NestJS", "Fastify", "Express", "Hono", "Koa", "AdonisJS", "tRPC", "Elysia (Bun)", "Effect", "FeathersJS"],
+      "go": ["Fiber", "Gin", "Echo", "Chi", "net/http", "gRPC-Go", "Fuego"],
+      "python": ["FastAPI", "Django / DRF", "Flask", "Litestar", "Sanic", "Starlette", "Robyn"],
+      "rust": ["Axum", "Actix Web", "Rocket", "Warp", "Poem", "Salvo"],
+      "dotnet": ["ASP.NET Core Minimal API", "ASP.NET Core MVC", "ServiceStack", "FusionCache"],
+      "php": ["Laravel", "Symfony", "Slim", "Lumen"],
+      "ruby": ["Rails", "Sinatra", "Hanami"],
+      "elixir": ["Phoenix", "Phoenix LiveView"],
+      "scala": ["Play", "http4s", "ZIO HTTP"]
+    },
+    "architecture_styles": [
+      "Clean Architecture",
+      "Hexagonal (Ports & Adapters)",
+      "Onion Architecture",
+      "Layered (N-Tier)",
+      "CQRS",
+      "Event-Driven",
+      "DDD (Bounded Contexts)",
+      "Vertical Slice Architecture"
+    ],
+    "system_styles": [
+      "Modular Monolith",
+      "Monolith",
+      "Microservices",
+      "Serverless / FaaS",
+      "Microkernel / Plugin",
+      "Event-Sourced",
+      "BFF (Backend for Frontend)"
+    ],
+    "auth": [
+      "JWT Access + Refresh Rotation",
+      "Session / Cookie based",
+      "OAuth2 / OIDC",
+      "OAuth2 + PKCE",
+      "mTLS",
+      "API Key",
+      "WebAuthn / Passkeys",
+      "SAML",
+      "Basic Auth (internal)"
+    ],
+    "authorization": ["RBAC", "ABAC", "ReBAC (Zanzibar-style)", "Casbin policies", "Scope-based (OAuth scopes)", "Policy-as-code (OPA)"],
+    "api_styles": [
+      "REST",
+      "GraphQL",
+      "gRPC",
+      "tRPC",
+      "WebSocket",
+      "SSE (Server-Sent Events)",
+      "Message Queue / AsyncAPI",
+      "JSON-RPC"
+    ]
+  },
+  "databases": {
+    "relational": ["PostgreSQL", "MySQL / MariaDB", "SQL Server", "Oracle", "SQLite", "CockroachDB", "YugabyteDB", "TiDB", "Supabase (Postgres)"],
+    "document": ["MongoDB", "Couchbase", "Firestore", "RavenDB", "DocumentDB"],
+    "key_value": ["Redis", "Valkey", "DynamoDB", "etcd", "Memcached"],
+    "wide_column": ["Cassandra", "ScyllaDB", "HBase", "Bigtable"],
+    "graph": ["Neo4j", "ArangoDB", "Neptune", "Dgraph"],
+    "search": ["Elasticsearch", "OpenSearch", "Meilisearch", "Typesense", "Algolia"],
+    "timeseries_analytics": ["TimescaleDB", "InfluxDB", "ClickHouse", "QuestDB", "DuckDB"],
+    "vector": ["pgvector", "Pinecone", "Weaviate", "Qdrant", "Milvus", "Chroma"],
+    "cache_queue": ["Redis", "RabbitMQ", "Kafka", "NATS", "Redis Streams", "SQS", "Pulsar", "BullMQ", "Celery"],
+    "serverless_managed": ["Supabase", "Firebase", "PlanetScale", "Neon", "Turso", "FaunaDB", "Appwrite"]
+  },
+  "orms": {
+    "kotlin_jvm": ["Exposed", "jOOQ", "Hibernate / JPA", "SQLDelight", "Room (KMP)", "Ktorm", "MyBatis", "Spring Data"],
+    "java": ["Hibernate / JPA", "jOOQ", "MyBatis", "Spring Data JPA", "Ebean"],
+    "typescript_node": ["Prisma", "Drizzle ORM", "TypeORM", "Kysely", "MikroORM", "Sequelize", "Objection.js", "Bookshelf", "Mongoose (Mongo)", "Knex (query builder)"],
+    "go": ["sqlc", "GORM", "Ent", "sqlx", "Bun", "Squirrel"],
+    "python": ["SQLAlchemy 2.0", "SQLModel", "Tortoise ORM", "Django ORM", "Peewee", "Piccolo", "Prisma Client Python"],
+    "rust": ["Diesel", "SeaORM", "SQLx", "Prisma Client Rust"],
+    "dotnet": ["EF Core", "Dapper", "NHibernate"],
+    "php": ["Eloquent", "Doctrine ORM"],
+    "ruby": ["ActiveRecord", "Sequel"],
+    "elixir": ["Ecto"],
+    "none_raw_sql": ["Raw SQL (driver langsung)", "Stored Procedures"]
+  },
+  "migration_tools": [
+    "Flyway",
+    "Liquibase",
+    "Prisma Migrate",
+    "Drizzle Kit",
+    "Alembic (Python)",
+    "Goose",
+    "golang-migrate",
+    "Atlas",
+    "dbmate",
+    "Knex migrations",
+    "TypeORM migrations",
+    "EF Core Migrations",
+    "Doctrine Migrations",
+    "Rails Migrations",
+    "Ecto Migrations",
+    "Sqitch",
+    "Exposed Migrations",
+    "Manual SQL"
+  ],
+  "id_strategies": [
+    "UUID v7",
+    "UUID v4",
+    "ULID",
+    "KSUID",
+    "Snowflake ID",
+    "BigInt auto-increment",
+    "CUID2",
+    "NanoID",
+    "MongoDB ObjectId",
+    "Composite / Natural key"
+  ],
+  "repo_strategies": ["monorepo", "multi-repo", "monorepo with polyrepo publishing"],
+  "module_strategies": [
+    {
+      "id": "strict-multi-module",
+      "label": "Strict Multi-Module",
+      "example": ":core:network, :core:database, :core:designsystem, :feature:pos"
+    },
+    {
+      "id": "package-by-feature",
+      "label": "Package-by-Feature (Vertical Slice)",
+      "example": "features/checkout/{presentation, domain, data}"
+    },
+    {
+      "id": "package-by-layer",
+      "label": "Package-by-Layer (Horizontal)",
+      "example": "presentation/, domain/, data/"
+    },
+    {
+      "id": "clean-architecture-rings",
+      "label": "Clean Architecture Rings",
+      "example": "entities/, usecases/, adapters/, frameworks/"
+    },
+    {
+      "id": "feature-sliced-design",
+      "label": "Feature-Sliced Design (FSD)",
+      "example": "app/, pages/, widgets/, features/, entities/, shared/"
+    },
+    {
+      "id": "ddd-bounded-context",
+      "label": "DDD Bounded Context",
+      "example": "contexts/sales/{domain,application,infrastructure}"
+    }
+  ],
+  "testing": {
+    "unit": ["JUnit5", "Kotest", "Vitest", "Jest", "Go testing", "pytest", "cargo test", "xUnit", "PHPUnit", "RSpec"],
+    "contract": ["Pact", "Schemathesis", "Dredd", "Prism (mock server)"],
+    "e2e": ["Playwright", "Cypress", "Maestro (mobile)", "Detox", "Appium", "Selenium"],
+    "load": ["k6", "JMeter", "Locust", "Gatling", "vegeta"]
+  },
+  "observability": ["OpenTelemetry", "Prometheus + Grafana", "Loki", "Sentry", "Jaeger", "Datadog", "Elastic APM"],
+  "ci_cd": ["GitHub Actions", "GitLab CI", "Jenkins", "CircleCI", "Buildkite", "ArgoCD", "FluxCD", "Dagger"],
+  "containers": ["Docker", "Podman", "docker-compose", "Kubernetes", "Nomad", "Fly.io", "Railway", "Render", "Coolify", "Dokploy"],
+
+  "application_domains": {
+    "commerce": ["E-commerce", "Marketplace", "POS / Kasir", "Inventory / WMS", "Subscription billing"],
+    "fintech": ["Wallet", "Payment gateway", "Lending", "KYC/AML", "Core banking", "Crypto exchange"],
+    "enterprise": ["ERP", "CRM", "HRIS/Payroll", "Project management", "Document management"],
+    "social_content": ["Social network", "Chat / Messaging", "Forum", "CMS / Blog", "Streaming"],
+    "health_edu": ["Telemedicine", "EHR/EMR", "LMS", "School management", "Booking"],
+    "logistics": ["Fleet tracking", "Last-mile delivery", "Warehouse", "Route optimization"],
+    "industry": ["IoT platform", "SCADA/HMI", "Digital twin", "Manufacturing MES"],
+    "data_ai": ["Analytics dashboard", "RAG chatbot", "Recommendation engine", "Forecasting", "Computer vision"],
+    "dev_tools": ["CI/CD platform", "API gateway", "Observability SaaS", "Low-code builder"],
+    "gaming_media": ["Mobile/PC game", "Metaverse/VR", "Media streaming", "Telemetry"]
+  },
+
+  "ai_ml": {
+    "llm_providers": ["OpenAI", "Anthropic Claude", "Google Gemini", "Mistral", "Meta Llama", "Cohere", "Groq", "Together AI", "Ollama (lokal)", "LM Studio", "OpenRouter", "Azure OpenAI", "AWS Bedrock", "Vertex AI", "DeepSeek", "Qwen"],
+    "local_runtimes": ["Ollama", "llama.cpp", "vLLM", "LM Studio", "text-generation-webui", "MLC LLM", "ONNX Runtime"],
+    "app_frameworks": ["LangChain", "LlamaIndex", "Haystack", "Semantic Kernel", "Vercel AI SDK", "LiteLLM", "DSPy", "LangGraph", "CrewAI", "AutoGen"],
+    "vector_stores": ["pgvector", "Pinecone", "Weaviate", "Qdrant", "Milvus", "Chroma", "FAISS", "LanceDB", "Redis Vector"],
+    "embeddings": ["OpenAI embeddings", "Cohere embed", "BGE", "E5", "Sentence-Transformers", "Voyage AI"],
+    "ml_frameworks": ["PyTorch", "TensorFlow", "JAX", "scikit-learn", "XGBoost", "LightGBM", "Hugging Face Transformers"],
+    "mlops": ["MLflow", "Weights & Biases", "Kubeflow", "DVC", "Ray", "BentoML", "Triton Inference Server", "Feast"],
+    "ai_coding_agents": ["OpenCode", "Antigraviti", "Hermes", "Cursor", "Claude Code", "Cline", "Roo Code", "GitHub Copilot", "Windsurf", "Aider", "Continue", "Codex CLI", "Gemini CLI", "Qwen Code"],
+    "prompt_techniques": ["Zero-shot", "Few-shot", "Chain-of-thought", "ReAct", "Self-consistency", "RAG grounded", "Structured output/JSON mode", "Function calling"]
+  },
+
+  "embedded_iot": {
+    "platforms": ["ESP32", "Arduino", "Raspberry Pi", "STM32", "RP2040", "Nordic nRF", "BeagleBone"],
+    "firmware_langs": ["C", "C++", "Rust (embedded)", "MicroPython", "CircuitPython", "Zephyr", "FreeRTOS", "ESP-IDF", "PlatformIO"],
+    "protocols": ["MQTT", "CoAP", "Zigbee", "Z-Wave", "LoRaWAN", "BLE", "Modbus", "OPC-UA", "CAN bus"],
+    "edge": ["Edge Impulse", "TensorFlow Lite Micro", "ONNX Runtime Mobile", "AWS IoT Greengrass", "Azure IoT Edge"]
+  },
+
+  "game_dev": {
+    "engines": ["Unity", "Unreal Engine", "Godot", "Bevy (Rust)", "GameMaker", "Defold", "Cocos"],
+    "web_game": ["Phaser", "Three.js", "Babylon.js", "PixiJS", "PlayCanvas", "Godot Web"],
+    "xr": ["Unity XR", "Meta Quest SDK", "WebXR", "ARCore", "ARKit", "Vision Pro / visionOS"]
+  },
+
+  "blockchain_web3": {
+    "chains": ["Ethereum", "Solana", "Polygon", "BNB Chain", "Base", "Arbitrum", "Avalanche", "Sui", "Aptos"],
+    "smart_contracts": ["Solidity", "Rust (Solana/Anchor)", "Move", "Vyper"],
+    "tools": ["Hardhat", "Foundry", "ethers.js", "viem", "web3.js", "Anchor", "Truffle"],
+    "storage": ["IPFS", "Arweave", "Filecoin", "Ceramic"]
+  },
+
+  "integrations": {
+    "payments": ["Stripe", "Midtrans", "Xendit", "PayPal", "Razorpay", "Adyen", "Square", "Mollie"],
+    "auth_providers": ["Auth0", "Clerk", "Firebase Auth", "Supabase Auth", "Keycloak", "Cognito", "WorkOS", "Better Auth", "NextAuth/Auth.js"],
+    "email_sms": ["Resend", "SendGrid", "Mailgun", "Postmark", "Amazon SES", "Twilio", "Vonage", "WhatsApp Business API"],
+    "storage_cdn": ["AWS S3", "Cloudflare R2", "Google Cloud Storage", "MinIO", "Supabase Storage", "Cloudinary", "UploadThing"],
+    "maps_geo": ["Google Maps", "Mapbox", "Leaflet", "OpenStreetMap", "HERE", "MapLibre"],
+    "push": ["Firebase Cloud Messaging", "APNs", "OneSignal", "Expo Push", "Web Push (VAPID)"],
+    "realtime_baas": ["Supabase Realtime", "Firebase", "Pusher", "Ably", "Liveblocks", "Socket.IO"],
+    "search_ai": ["Algolia", "Meilisearch", "Typesense", "Elasticsearch", "pgvector"]
+  },
+
+  "messaging_events": {
+    "brokers": ["Kafka", "RabbitMQ", "NATS", "Redis Streams", "AWS SQS/SNS", "Google Pub/Sub", "Pulsar", "Redpanda"],
+    "patterns": ["Pub/Sub", "Event sourcing", "CQRS", "Saga orchestration", "Outbox pattern", "Idempotent consumer"],
+    "realtime_transport": ["WebSocket", "SSE", "Socket.IO", "SignalR", "gRPC streaming", "MQTT"]
+  },
+
+  "security_compliance": {
+    "standards": ["OWASP Top 10", "OWASP ASVS", "ISO 27001", "SOC 2", "GDPR", "PCI-DSS", "HIPAA", "UU PDP (Indonesia)"],
+    "appsec_tools": ["SonarQube", "Semgrep", "Snyk", "Trivy", "OWASP ZAP", "Burp Suite", "Dependabot", "CodeQL"],
+    "secrets": ["HashiCorp Vault", "AWS Secrets Manager", "Doppler", "Infisical", "SOPS", "1Password Secrets"],
+    "encryption": ["TLS 1.3", "AES-256-GCM", "Argon2id", "bcrypt", "libsodium", "JWT (RS256/EdDSA)"],
+    "network": ["WAF (Cloudflare/AWS)", "mTLS", "VPN/WireGuard", "Zero Trust", "Rate limiting", "CORS/CSP"]
+  },
+
+  "devops_infra": {
+    "iac": ["Terraform", "OpenTofu", "Pulumi", "AWS CDK", "Ansible", "Crossplane"],
+    "cloud": ["AWS", "GCP", "Azure", "Cloudflare", "DigitalOcean", "Hetzner", "Vercel", "Netlify", "Fly.io"],
+    "serverless": ["AWS Lambda", "Cloudflare Workers", "Vercel Functions", "Google Cloud Functions", "Deno Deploy", "Supabase Edge Functions"],
+    "api_gateway": ["Kong", "Traefik", "Nginx", "Envoy", "APISIX", "AWS API Gateway"],
+    "release": ["Semantic Release", "Changesets", "Release Please", "Nx release"]
+  },
+
+  "quality_experience": {
+    "i18n": ["i18next", "next-intl", "vue-i18n", "Fluent", "gettext", "ICU MessageFormat", "RTL support"],
+    "accessibility": ["WCAG 2.2 AA", "ARIA", "axe-core", "Lighthouse a11y", "TalkBack", "VoiceOver"],
+    "analytics": ["Google Analytics 4", "Plausible", "PostHog", "Mixpanel", "Amplitude", "Matomo"],
+    "feature_flags": ["LaunchDarkly", "Unleash", "Flagsmith", "PostHog flags", "ConfigCat"],
+    "performance": ["Core Web Vitals", "Lighthouse CI", "Bundle analyzer", "k6", "Profiling (perfetto/py-spy)"]
+  },
+
+  "ai_reader_tiers": {
+    "description": "Panduan konten untuk setiap tingkat kemampuan model AI. Gunakan flag --tier pada orchestrator/prompt.ts.",
+    "cheap": {
+      "label": "AI Murah / Model Kecil (hemat token, kemampuan terbatas)",
+      "guideline": "Satu langkah per waktu. Salin template persis. Jangan berimprovisasi. Isi hanya field wajib. Jika ragu, gunakan nilai default dari template.",
+      "max_decisions_per_step": 1
+    },
+    "standard": {
+      "label": "Model Menengah",
+      "guideline": "Ikuti kontrak output dan checklist; boleh menyusun variasi dalam batas template.",
+      "max_decisions_per_step": 3
+    },
+    "advanced": {
+      "label": "Model Besar / Mahal",
+      "guideline": "Boleh mengoptimalkan, memberi alternatif, dan menambah bagian lanjutan selama kontrak & traceability terjaga.",
+      "max_decisions_per_step": 99
+    }
+  },
+
+  "output_formats": {
+    "docs": "Markdown (template di templates/docs/)",
+    "state": "JSON (skema di schemas/)",
+    "contracts": ["OpenAPI 3.1 (YAML/JSON)", "AsyncAPI", "JSON Schema", "Protobuf", "GraphQL SDL", "Mermaid (ERD, flow, sequence)"]
+  }
+}

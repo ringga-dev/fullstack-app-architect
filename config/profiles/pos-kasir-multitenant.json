@@ -1,0 +1,53 @@
+{
+  "id": "pos-kasir-multitenant",
+  "name": "POS Kasir Multi-Tenant (SaaS)",
+  "description": "SaaS POS multi-toko (tenant): Kotlin/Ktor + PostgreSQL (Row-Level Security) + Compose Multiplatform, offline-first.",
+  "tags": ["pos", "saas", "multi-tenant", "offline-first", "kotlin"],
+  "project_meta": {
+    "name": "pos-kasir-multitenant",
+    "platforms": ["Android", "iOS", "Desktop", "Web"],
+    "architecture_style": "Clean Architecture",
+    "description": "SaaS kasir/POS multi-tenant offline-first; satu deployment melayani banyak toko dengan isolasi data."
+  },
+  "tech_stack_state": {
+    "profile": "pos-kasir-multitenant",
+    "platforms": ["Android", "iOS", "Desktop", "Web"],
+    "sync_mode": "offline-first",
+    "fe": {
+      "ui_framework": "Compose Multiplatform (CMP)",
+      "presentation_pattern": "MVI (Unidirectional Data Flow)",
+      "di": "Koin",
+      "networking": "Ktor Client",
+      "navigation": "Voyager / Decompose",
+      "local_db": "SQLDelight"
+    },
+    "be": {
+      "language": "Kotlin",
+      "framework": "Ktor",
+      "architecture_style": "Clean Architecture",
+      "system_style": "Modular Monolith",
+      "auth": "JWT Access + Refresh Rotation"
+    },
+    "db": {
+      "server_engine": "PostgreSQL",
+      "orm": "Exposed (Kotlin)",
+      "migration_tool": "Flyway",
+      "primary_key_strategy": "UUID v7"
+    },
+    "repo_strategy": "monorepo",
+    "module_strategy": "package-by-feature",
+    "standards": {
+      "domain_purity": true,
+      "strict_mapping": true,
+      "error_handling": "Result<T, E>",
+      "naming": { "db": "snake_case_plural", "api": "snake_case", "linter": "detekt + ktlint" },
+      "status": "LOCKED"
+    }
+  },
+  "notes": [
+    "Semua tabel operasional wajib punya tenant_id.",
+    "Wajib Row-Level Security (RLS) PostgreSQL: policy USING (tenant_id = current_setting('app.tenant_id')::uuid).",
+    "Middleware tenant: set app.tenant_id per request dari JWT sebelum query.",
+    "Super Admin hanya untuk manajemen tenant, tidak membaca data transaksi tenant tanpa hak."
+  ]
+}

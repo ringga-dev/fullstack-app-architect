@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "APIStateSchema",
+  "type": "object",
+  "required": ["base_url", "endpoints"],
+  "additionalProperties": true,
+  "properties": {
+    "base_url": { "type": "string" },
+    "version": { "type": "string" },
+    "envelope": { "type": ["object", "null"] },
+    "endpoints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "method", "path", "maps_to_fr"],
+        "additionalProperties": true,
+        "properties": {
+          "id": { "type": "string", "pattern": "^API-[0-9]{2,}$" },
+          "method": {
+            "type": "string",
+            "enum": ["GET", "POST", "PUT", "PATCH", "DELETE"]
+          },
+          "path": { "type": "string", "minLength": 1 },
+          "maps_to_fr": {
+            "type": "array",
+            "items": { "type": "string", "pattern": "^FR-[0-9]{2,}$" },
+            "minItems": 1
+          },
+          "consumed_by_fe": {
+            "type": "array",
+            "items": { "type": "string", "pattern": "^FE-[0-9]{2,}$" }
+          },
+          "served_by_be": {
+            "type": "array",
+            "items": { "type": "string", "pattern": "^BE-[0-9]{2,}$" }
+          },
+          "auth_roles": { "type": "array", "items": { "type": "string" } },
+          "query_params": { "type": "array" },
+          "path_params": { "type": "array" },
+          "request_body": { "type": ["object", "null"] },
+          "response_envelope": { "type": ["object", "null"] },
+          "errors": { "type": "array", "items": { "type": "integer" } }
+        }
+      },
+      "minItems": 0
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "id": "dotnet-enterprise",
+  "name": ".NET Enterprise (ASP.NET Core)",
+  "description": "Aplikasi enterprise dengan ASP.NET Core + EF Core + SQL Server, FE React.",
+  "tags": ["dotnet", "csharp", "enterprise", "web"],
+  "project_meta": {
+    "name": "dotnet-app",
+    "platforms": ["Web", "Windows"],
+    "architecture_style": "Clean Architecture",
+    "description": "Aplikasi enterprise berbasis .NET."
+  },
+  "tech_stack_state": {
+    "profile": "dotnet-enterprise",
+    "platforms": ["Web", "Windows"],
+    "sync_mode": "online-only",
+    "fe": {
+      "ui_framework": "React",
+      "presentation_pattern": "Redux Toolkit",
+      "di": "Manual DI / Composition Root",
+      "networking": "TanStack Query (React Query)",
+      "navigation": "React Router"
+    },
+    "be": {
+      "language": "C# / .NET",
+      "framework": "ASP.NET Core Minimal API",
+      "architecture_style": "Clean Architecture",
+      "system_style": "Modular Monolith",
+      "auth": "OAuth2 / OIDC + JWT"
+    },
+    "db": {
+      "server_engine": "SQL Server",
+      "orm": "EF Core",
+      "migration_tool": "EF Core Migrations",
+      "primary_key_strategy": "UUID v7"
+    },
+    "repo_strategy": "monorepo",
+    "module_strategy": "package-by-feature",
+    "standards": {
+      "domain_purity": true,
+      "strict_mapping": true,
+      "error_handling": "Result<T, E>",
+      "naming": { "db": "snake_case_plural", "api": "camelCase", "linter": "Roslyn analyzers + StyleCop" },
+      "status": "LOCKED"
+    }
+  },
+  "notes": ["Dalam ekosistem Microsoft; gunakan EF Core + SQL Server."]
+}
